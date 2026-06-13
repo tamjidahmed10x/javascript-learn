@@ -1,0 +1,312 @@
+/* ── Collapsible Q&A ──────────────────────────────────────── */
+
+.collapsible-qa {
+  margin: 1rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .collapsible-qa {
+  border-color: var(--color-border-light);
+}
+
+.collapsible-qa.diff-medium {
+  border-left: 3px solid oklch(0.75 0.14 55);
+}
+
+.collapsible-qa.diff-hard {
+  border-left: 3px solid oklch(0.65 0.18 25);
+}
+
+.collapsible-qa.diff-boss {
+  border-left: 3px solid oklch(0.60 0.20 350);
+}
+
+/* Toggle button */
+.collapsible-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  text-align: left;
+  transition: background-color 0.15s var(--ease-out-quart),
+    color 0.15s var(--ease-out-quart);
+}
+
+.collapsible-toggle:hover {
+  background-color: var(--color-surface);
+}
+
+body.light .collapsible-toggle:hover {
+  background-color: var(--color-surface-light);
+}
+
+.collapsible-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  background-color: var(--color-surface);
+}
+
+.collapsible-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .collapsible-label {
+  color: var(--color-muted-light);
+}
+
+.collapsible-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  transition: color 0.4s var(--ease-out-quart),
+    transform 0.2s var(--ease-out-quart);
+  flex-shrink: 0;
+}
+
+body.light .collapsible-arrow {
+  color: var(--color-muted-light);
+}
+
+.collapsible-qa.is-open .collapsible-arrow {
+  transform: rotate(90deg);
+}
+
+/* Question section */
+.collapsible-question {
+  padding: 0 1rem 0.75rem;
+  animation: slide-in 0.2s var(--ease-out-quart);
+}
+
+/* Answer section */
+.collapsible-answer {
+  border-top: 1px solid var(--color-border);
+  transition: border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .collapsible-answer {
+  border-top-color: var(--color-border-light);
+}
+
+.collapsible-answer-toggle {
+  border-top: none;
+  padding-top: 0.75rem;
+}
+
+.collapsible-answer-content {
+  padding: 0 1rem 1rem;
+  animation: slide-in 0.2s var(--ease-out-quart);
+}
+
+/* Rapid fire items */
+.rapid-fire-group {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-surface);
+  transition: border-color 0.4s var(--ease-out-quart),
+    background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .rapid-fire-group {
+  background-color: var(--color-surface-light);
+  border-color: var(--color-border-light);
+}
+
+.rapid-fire-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 0.75rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .rapid-fire-label {
+  color: var(--color-primary-light);
+}
+
+.rapid-fire-item {
+  margin-bottom: 0.5rem;
+}
+
+.rapid-fire-item:last-child {
+  margin-bottom: 0;
+}
+
+.rapid-fire-prompt {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+  line-height: 1.5;
+}
+
+.rapid-fire-answer {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .rapid-fire-answer {
+  color: var(--color-muted-light);
+}
+
+/* Round labels */
+.round-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  padding: 0.25rem 0.625rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 0.25rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  transition: color 0.4s var(--ease-out-quart),
+    border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .round-label {
+  color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+}
+
+/* Score table */
+.score-table {
+  margin: 1.5rem 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.score-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.score-table th {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-muted);
+  transition: border-color 0.4s var(--ease-out-quart),
+    color 0.4s var(--ease-out-quart);
+}
+
+body.light .score-table th {
+  border-bottom-color: var(--color-border-light);
+  color: var(--color-muted-light);
+}
+
+.score-table td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+  transition: border-color 0.4s var(--ease-out-quart),
+    color 0.4s var(--ease-out-quart);
+}
+
+body.light .score-table td {
+  border-bottom-color: var(--color-border-light);
+  color: var(--color-ink-light);
+}
+
+.score-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Next topics table */
+.topics-table {
+  margin-top: 1rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.topics-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.topics-table th {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-muted);
+  transition: border-color 0.4s var(--ease-out-quart),
+    color 0.4s var(--ease-out-quart);
+}
+
+body.light .topics-table th {
+  border-bottom-color: var(--color-border-light);
+  color: var(--color-muted-light);
+}
+
+.topics-table td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+  transition: border-color 0.4s var(--ease-out-quart),
+    color 0.4s var(--ease-out-quart);
+}
+
+body.light .topics-table td {
+  border-bottom-color: var(--color-border-light);
+  color: var(--color-ink-light);
+}
+
+.topics-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Animation */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapsible-answer-content,
+  .collapsible-question {
+    animation: none;
+  }
+}

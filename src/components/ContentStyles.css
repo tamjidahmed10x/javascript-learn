@@ -1,0 +1,661 @@
+/* ── Lesson content styles ────────────────────────────────────── */
+
+.lesson-header {
+  margin-bottom: 2.5rem;
+}
+
+.lesson-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-tag {
+  color: var(--color-accent-light);
+}
+
+.lesson-title {
+  margin: 0 0 0.5rem;
+}
+
+.lesson-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-muted);
+  margin: 0 0 0.75rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-subtitle {
+  color: var(--color-muted-light);
+}
+
+.lesson-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lesson-meta-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  transition: color 0.4s var(--ease-out-quart),
+    border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-meta-item {
+  color: var(--color-muted-light);
+  border-color: var(--color-border-light);
+}
+
+/* ── Day sections ─────────────────────────────────────────────── */
+
+.day-section {
+  margin-top: 3rem;
+  scroll-margin-top: 2rem;
+}
+
+.day-heading {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 0.25rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-heading {
+  color: var(--color-primary-light);
+}
+
+.day-title {
+  margin: 0 0 1.25rem;
+}
+
+/* ── Content blocks ───────────────────────────────────────────── */
+
+.content-block {
+  margin: 1.25rem 0;
+}
+
+.content-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .content-block-label {
+  color: var(--color-accent-light);
+}
+
+.learn-list,
+.check-list {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.learn-list li,
+.check-list li {
+  margin-bottom: 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink);
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+.learn-list li::marker {
+  color: var(--color-muted);
+}
+
+.check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.check-list li::before {
+  content: '✓';
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+body.light .check-list li::before {
+  color: var(--color-accent-light);
+}
+
+/* ── Concept explanation ───────────────────────────────────────── */
+
+.concept-flow {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-surface);
+  border-radius: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 2;
+  color: var(--color-ink);
+  overflow-x: auto;
+  transition: background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .concept-flow {
+  background-color: var(--color-surface-light);
+}
+
+.concept-flow .flow-arrow {
+  color: var(--color-muted);
+}
+
+body.light .concept-flow .flow-arrow {
+  color: var(--color-muted-light);
+}
+
+.concept-flow .flow-highlight {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+body.light .concept-flow .flow-highlight {
+  color: var(--color-primary-light);
+}
+
+/* ── Practice callout ──────────────────────────────────────────── */
+
+.practice-callout {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-surface);
+  border-radius: 0 0.5rem 0.5rem 0;
+  transition: background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .practice-callout {
+  background-color: var(--color-surface-light);
+}
+
+.practice-callout-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .practice-callout-label {
+  color: var(--color-primary-light);
+}
+
+.practice-callout p {
+  margin: 0.25rem 0;
+  font-size: 0.9375rem;
+}
+
+/* ── Interview questions callout ───────────────────────────────── */
+
+.interview-callout {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--color-accent) 30%, transparent);
+  border-radius: 0.5rem;
+  background-color: color-mix(in oklch, var(--color-accent) 5%, var(--color-bg));
+  transition: background-color 0.4s var(--ease-out-quart),
+    border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .interview-callout {
+  background-color: color-mix(in oklch, var(--color-accent-light) 5%, var(--color-bg-light));
+  border-color: color-mix(in oklch, var(--color-accent-light) 30%, transparent);
+}
+
+.interview-callout-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .interview-callout-label {
+  color: var(--color-accent-light);
+}
+
+.interview-question {
+  font-size: 0.9375rem;
+  margin: 0.375rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.interview-question::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .interview-question::before {
+  color: var(--color-accent-light);
+}
+
+/* ── Exercise callout ──────────────────────────────────────────── */
+
+.exercise-callout {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-surface);
+  transition: background-color 0.4s var(--ease-out-quart),
+    border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .exercise-callout {
+  background-color: var(--color-surface-light);
+  border-color: var(--color-border-light);
+}
+
+.exercise-callout-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .exercise-callout-label {
+  color: var(--color-muted-light);
+}
+
+.exercise-callout p {
+  margin: 0.25rem 0;
+  font-size: 0.9375rem;
+}
+
+/* ── Challenge section ─────────────────────────────────────────── */
+
+.challenge-section {
+  margin-top: 3.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.75rem;
+  background-color: color-mix(in oklch, var(--color-primary) 6%, var(--color-bg));
+  transition: background-color 0.4s var(--ease-out-quart),
+    border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .challenge-section {
+  border-color: var(--color-primary-light);
+  background-color: color-mix(in oklch, var(--color-primary-light) 6%, var(--color-bg-light));
+}
+
+.challenge-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  display: block;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .challenge-label {
+  color: var(--color-primary-light);
+}
+
+.challenge-section p {
+  font-size: 0.9375rem;
+  margin: 0.5rem 0;
+}
+
+.challenge-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.challenge-list li {
+  font-size: 0.9375rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  position: relative;
+}
+
+.challenge-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.625rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  transition: border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .challenge-list li::before {
+  border-color: var(--color-primary-light);
+}
+
+/* ── Week transition ──────────────────────────────────────────── */
+
+.week-bridge {
+  margin-top: 3.5rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: 0.5rem;
+  transition: background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .week-bridge {
+  background-color: var(--color-surface-light);
+}
+
+.week-bridge p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .week-bridge p {
+  color: var(--color-muted-light);
+}
+
+.week-bridge strong {
+  color: var(--color-ink);
+  font-weight: 600;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .week-bridge strong {
+  color: var(--color-ink-light);
+}
+
+/* ── Lesson code blocks ────────────────────────────────────────── */
+
+.lesson-code {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  margin: 1rem 0;
+  transition: border-color 0.4s var(--ease-out-quart),
+    background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-code {
+  border-color: var(--color-border-light);
+  background-color: var(--color-surface-light);
+}
+
+.lesson-code-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: color-mix(in oklch, var(--color-surface) 70%, var(--color-bg));
+  transition: border-color 0.4s var(--ease-out-quart),
+    background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-code-header {
+  border-bottom-color: var(--color-border-light);
+  background-color: color-mix(in oklch, var(--color-surface-light) 70%, var(--color-bg-light));
+}
+
+.lesson-code-dots {
+  display: flex;
+  gap: 0.3125rem;
+}
+
+.lesson-code-dot {
+  width: 0.5625rem;
+  height: 0.5625rem;
+  border-radius: 50%;
+  background-color: var(--color-border-hover);
+  transition: background-color 0.4s var(--ease-out-quart);
+}
+
+.lesson-code-dot:first-child {
+  background-color: oklch(0.65 0.20 25);
+}
+
+.lesson-code-dot:nth-child(2) {
+  background-color: oklch(0.70 0.16 85);
+}
+
+.lesson-code-dot:last-child {
+  background-color: oklch(0.65 0.18 145);
+}
+
+.lesson-code-filename,
+.lesson-code-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-code-filename,
+body.light .lesson-code-label {
+  color: var(--color-muted-light);
+}
+
+.lesson-code-pre {
+  margin: 0;
+  padding: 1rem 1.125rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lesson-code-pre code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+  tab-size: 2;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .lesson-code-pre code {
+  color: var(--color-ink-light);
+}
+
+/* Syntax colors */
+.lesson-code-pre .syn-comment {
+  color: var(--color-muted);
+}
+
+body.light .lesson-code-pre .syn-comment {
+  color: var(--color-muted-light);
+}
+
+.lesson-code-pre .syn-keyword {
+  color: var(--color-primary);
+}
+
+body.light .lesson-code-pre .syn-keyword {
+  color: var(--color-primary-light);
+}
+
+.lesson-code-pre .syn-string {
+  color: var(--color-accent);
+}
+
+body.light .lesson-code-pre .syn-string {
+  color: var(--color-accent-light);
+}
+
+.lesson-code-pre .syn-function {
+  color: oklch(0.80 0.12 250);
+}
+
+body.light .lesson-code-pre .syn-function {
+  color: oklch(0.45 0.15 250);
+}
+
+.lesson-code-pre .syn-number {
+  color: oklch(0.75 0.14 55);
+}
+
+body.light .lesson-code-pre .syn-number {
+  color: oklch(0.50 0.16 55);
+}
+
+/* ── Day grid (week index) ─────────────────────────────────────── */
+
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: 1px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  transition: border-color 0.4s var(--ease-out-quart),
+    background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-grid {
+  background-color: var(--color-border-light);
+  border-color: var(--color-border-light);
+}
+
+.day-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.25rem;
+  background-color: var(--color-bg);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s var(--ease-out-quart);
+}
+
+.day-card:hover {
+  background-color: var(--color-surface-hover);
+}
+
+body.light .day-card {
+  background-color: var(--color-bg-light);
+}
+
+body.light .day-card:hover {
+  background-color: var(--color-surface-hover-light);
+}
+
+.day-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day-card-num {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: color-mix(in oklch, var(--color-primary) 12%, transparent);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: color 0.4s var(--ease-out-quart),
+    background-color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-card-num {
+  color: var(--color-primary-light);
+  background-color: color-mix(in oklch, var(--color-primary-light) 12%, transparent);
+}
+
+.day-card-arrow {
+  color: var(--color-muted);
+  transition: color 0.2s var(--ease-out-quart),
+    transform 0.2s var(--ease-out-quart);
+}
+
+.day-card:hover .day-card-arrow {
+  color: var(--color-primary);
+  transform: translateX(0.2rem);
+}
+
+body.light .day-card-arrow {
+  color: var(--color-muted-light);
+}
+
+.day-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.day-card-topics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.day-card-topics li {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  padding-left: 1rem;
+  position: relative;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-card-topics li {
+  color: var(--color-muted-light);
+}
+
+.day-card-topics li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-card-topics li::before {
+  color: var(--color-muted-light);
+}

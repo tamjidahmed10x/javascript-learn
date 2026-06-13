@@ -1,0 +1,75 @@
+/* ── Day Navigation ─────────────────────────────────────────── */
+
+.day-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  transition: border-color 0.4s var(--ease-out-quart);
+}
+
+body.light .day-nav {
+  border-top-color: var(--color-border-light);
+}
+
+.day-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: background-color 0.2s var(--ease-out-quart),
+    border-color 0.2s var(--ease-out-quart);
+}
+
+body.light .day-nav-link {
+  border-color: var(--color-border-light);
+}
+
+.day-nav-link:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+}
+
+body.light .day-nav-link:hover {
+  background-color: var(--color-surface-hover-light);
+  border-color: var(--color-border-hover-light);
+}
+
+.day-nav-prev {
+  align-items: flex-start;
+}
+
+.day-nav-next {
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.day-nav-dir {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  transition: color 0.2s var(--ease-out-quart);
+}
+
+body.light .day-nav-dir {
+  color: var(--color-muted-light);
+}
+
+.day-nav-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  transition: color 0.2s var(--ease-out-quart);
+}
+
+body.light .day-nav-label {
+  color: var(--color-ink-light);
+}

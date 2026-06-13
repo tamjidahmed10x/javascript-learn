@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ───────────────────────────────────────────── */
+
+@theme {
+  /* Color palette (OKLCH) */
+  --color-bg: oklch(0.10 0 0);
+  --color-surface: oklch(0.14 0 0);
+  --color-surface-hover: oklch(0.18 0 0);
+  --color-ink: oklch(0.92 0.01 40);
+  --color-primary: oklch(0.66 0.18 40);
+  --color-accent: oklch(0.75 0.14 160);
+  --color-muted: oklch(0.55 0.01 40);
+  --color-border: oklch(0.22 0 0);
+  --color-border-hover: oklch(0.32 0 0);
+
+  /* Light theme overrides */
+  --color-bg-light: oklch(1.000 0 0);
+  --color-surface-light: oklch(0.97 0.005 40);
+  --color-surface-hover-light: oklch(0.94 0.008 40);
+  --color-ink-light: oklch(0.15 0.02 40);
+  --color-primary-light: oklch(0.55 0.19 40);
+  --color-accent-light: oklch(0.52 0.14 160);
+  --color-muted-light: oklch(0.50 0.02 40);
+  --color-border-light: oklch(0.90 0.008 40);
+  --color-border-hover-light: oklch(0.82 0.01 40);
+
+  /* Typography */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Easing */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100dvh;
+  transition: background-color 0.4s var(--ease-out-quart),
+    color 0.4s var(--ease-out-quart);
+}
+
+/* ── Light theme ──────────────────────────────────────────────── */
+
+body.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-ink-light);
+}
+
+/* ── Typography ───────────────────────────────────────────────── */
+
+h1 {
+  font-size: clamp(2.25rem, 5vw + 1rem, 3.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+p {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ── Focus ─────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+body.light :focus-visible {
+  outline-color: var(--color-primary-light);
+}
+
+/* ── Reduced motion ───────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
