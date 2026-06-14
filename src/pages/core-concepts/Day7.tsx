@@ -21,12 +21,12 @@ export default function Day7() {
         <span className="lesson-tag">Day 7 of 7</span>
         <h1 className="lesson-title">Revision + Mock Interview</h1>
         <p className="article-lead">
-          Full session covering all Week 1 topics. Rapid fire revision, then a mock interview
+          JavaScript Execution Model — Full Session. Rapid fire revision, then a mock interview
           with 15 questions across 4 difficulty rounds.
         </p>
       </div>
 
-      {/* ── Part 1: Rapid Fire ─────────────────────────────── */}
+      {/* ── Part 1: Rapid Fire Revision ──────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Part 1 — Rapid Fire Revision</h2>
         <p className="article-para">
@@ -49,8 +49,8 @@ export default function Day7() {
           <div className="rapid-fire-item">
             <p className="rapid-fire-prompt">What are the two phases?</p>
             <p className="rapid-fire-answer">
-              Creation phase (declarations registered, <code>this</code> set, scope chain built). Execution
-              phase (code runs line by line).
+              Creation phase (declarations registered, <code>this</code> set, scope chain built).
+              Execution phase (code runs line by line).
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function Day7() {
           <div className="rapid-fire-item">
             <p className="rapid-fire-prompt">Does <code>typeof</code> safely handle TDZ variables?</p>
             <p className="rapid-fire-answer">
-              No. <code>typeof undeclaredVar</code> → <code>"undefined"</code>.{' '}
+              No. <code>typeof undeclaredVar</code> → <code>"undefined"</code>.
               <code>typeof tdzVar</code> → <code>ReferenceError</code>.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function Day7() {
           <div className="rapid-fire-item">
             <p className="rapid-fire-prompt">What's the difference between function scope and block scope?</p>
             <p className="rapid-fire-answer">
-              <code>var</code> = function scope, ignores <code>{'{ }'}</code>.{' '}
+              <code>var</code> = function scope, ignores <code>{'{ }'}</code>.
               <code>let</code>/<code>const</code> = block scope, dies at <code>{'}'}</code>.
             </p>
           </div>
@@ -163,9 +163,7 @@ export default function Day7() {
 
           <div className="rapid-fire-item">
             <p className="rapid-fire-prompt">When is the scope chain built?</p>
-            <p className="rapid-fire-answer">
-              At function definition time. Fixed. Never changes.
-            </p>
+            <p className="rapid-fire-answer">At function definition time. Fixed. Never changes.</p>
           </div>
 
           <div className="rapid-fire-item">
@@ -238,14 +236,12 @@ export default function Day7() {
 
           <div className="rapid-fire-item">
             <p className="rapid-fire-prompt">If a microtask schedules another microtask, when does it run?</p>
-            <p className="rapid-fire-answer">
-              Before any macrotask. Microtask queue fully drains first.
-            </p>
+            <p className="rapid-fire-answer">Before any macrotask. Microtask queue fully drains first.</p>
           </div>
         </div>
       </section>
 
-      {/* ── Part 2: Mock Interview ──────────────────────── */}
+      {/* ── Part 2: Mock Interview ───────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Part 2 — Mock Interview</h2>
         <p className="article-para">
@@ -253,15 +249,19 @@ export default function Day7() {
         </p>
       </section>
 
-      {/* Round 1: Junior */}
+      {/* Round 1 — Junior Level */}
       <section className="day-section">
         <span className="round-label">Round 1 — Junior Level</span>
 
         <CollapsibleQA
           difficulty="easy"
-          question={<CodeBlock code={`console.log(a);
+          label="Question 1"
+          question={<>
+            <p className="iq-q">Q1. What logs?</p>
+            <CodeBlock code={`console.log(a);
 var a = 5;
-console.log(a);`} filename="q1.js" />}
+console.log(a);`} filename="q1.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">First log</span><code>undefined</code></div>
@@ -271,74 +271,85 @@ console.log(a);`} filename="q1.js" />}
               <code>var a</code> is hoisted and initialized to <code>undefined</code> during creation phase.
               First log hits before assignment. Second log hits after <code>a = 5</code>.
             </p>
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="easy"
-          question={<CodeBlock code={`sayHi();
+          label="Question 2"
+          question={<>
+            <p className="iq-q">Q2. What happens?</p>
+            <CodeBlock code={`sayHi();
 sayBye();
 
 function sayHi() { console.log("Hi"); }
-var sayBye = function() { console.log("Bye"); };`} filename="q2.js" />}
+var sayBye = function() { console.log("Bye"); };`} filename="q2.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Output</span><code>"Hi"</code></div>
               <div className="iq-answer-row"><span className="iq-answer-label">Then</span><code>TypeError: sayBye is not a function</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>sayHi</code> is a function declaration — fully hoisted, callable anywhere. <code>sayBye
-              </code> is a <code>var</code> — hoisted as <code>undefined</code>. Calling <code>undefined()
-              </code> → <code>TypeError</code>.
+              <code>sayHi</code> is a function declaration — fully hoisted, callable anywhere.
+              <code>sayBye</code> is a <code>var</code> — hoisted as <code>undefined</code>.
+              Calling <code>undefined()</code> → <code>TypeError</code>.
             </p>
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="easy"
-          question={<CodeBlock code={`{
+          label="Question 3"
+          question={<>
+            <p className="iq-q">Q3. What logs?</p>
+            <CodeBlock code={`{
   var x = 1;
   let y = 2;
 }
 console.log(x);
-console.log(y);`} filename="q3.js" />}
+console.log(y);`} filename="q3.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">First log</span><code>1</code></div>
               <div className="iq-answer-row"><span className="iq-answer-label">Second log</span><code>ReferenceError</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>var</code> ignores block boundaries — leaks out. <code>let</code> is block-scoped —
-              dead outside <code>{'{ }'}</code>.
+              <code>var</code> ignores block boundaries — leaks out.
+              <code>let</code> is block-scoped — dead outside <code>{'{ }'}</code>.
             </p>
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="easy"
-          question={<CodeBlock code={`const user = { name: "Tamjid" };
+          label="Question 4"
+          question={<>
+            <p className="iq-q">Q4. What happens?</p>
+            <CodeBlock code={`const user = { name: "Tamjid" };
 user.name = "Rahman";
-user = {};`} filename="q4.js" />}
+user = {};`} filename="q4.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
-              <div className="iq-answer-row"><span className="iq-answer-label">Line 2</span><code>✅</code> — mutating the object, not reassigning</div>
-              <div className="iq-answer-row"><span className="iq-answer-label">Line 3</span><code>❌ TypeError</code> — reassigning the binding</div>
+              <div className="iq-answer-row"><span className="iq-answer-label">Line 2</span><code>✅</code> — works. <code>const</code> prevents reassigning the binding, not mutating the object.</div>
+              <div className="iq-answer-row"><span className="iq-answer-label">Line 3</span><code>❌ TypeError</code> — reassigning the binding itself. <code>const</code> forbids this.</div>
             </div>
-            <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>const</code> prevents reassigning the <em>binding</em>, not mutating the object.{' '}
-              <code>user = {}</code> reassigns the binding itself — forbidden.
-            </p>
-          />}
+          </>}
         />
       </section>
 
-      {/* Round 2: Mid */}
+      {/* Round 2 — Mid Level */}
       <section className="day-section">
         <span className="round-label">Round 2 — Mid Level</span>
 
         <CollapsibleQA
           difficulty="medium"
-          question={<CodeBlock code={`let x = "global";
+          label="Question 5"
+          question={<>
+            <p className="iq-q">Q5. What logs and why?</p>
+            <CodeBlock code={`let x = "global";
 
 function outer() {
   let x = "outer";
@@ -351,40 +362,45 @@ function outer() {
 }
 
 const fn = outer();
-fn();`} filename="q5.js" />}
+fn();`} filename="q5.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Output</span><code>"outer"</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
               <code>inner</code> is defined inside <code>outer</code> — its scope chain includes{' '}
-              <code>outer</code>'s environment. Even after <code>outer()</code> finishes, <code>inner</code> holds
-              a reference to that environment (closure). <code>fn()</code> is called in global scope,
-              but the chain was fixed at definition.
+              <code>outer</code>'s environment. Even after <code>outer()</code> finishes,{' '}
+              <code>inner</code> holds a reference to that environment (closure).{' '}
+              <code>fn()</code> is called in global scope, but the chain was fixed at definition.
+              Finds <code>x = "outer"</code> in <code>outer</code>'s scope before reaching global.
             </p>
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="medium"
-          question={<CodeBlock code={`for (var i = 0; i < 3; i++) {
+          label="Question 6"
+          question={<>
+            <p className="iq-q">Q6. What logs? How do you fix it?</p>
+            <CodeBlock code={`for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 0);
-}`} filename="q6.js" />}
+}`} filename="q6.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Output</span><code>3, 3, 3</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>var i</code> is function-scoped — one shared <code>i</code>. Loop finishes (<code>i = 3
-              </code>) before any callback fires.
+              <code>var i</code> is function-scoped — one shared <code>i</code>.
+              Loop finishes (<code>i = 3</code>) before any callback fires. All three see <code>i = 3</code>.
             </p>
-
             <CodeBlock
               code={`// Fix 1 — let
 for (let i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 0);
 }
-// 0, 1, 2 ✅
+// 0, 1, 2
 
 // Fix 2 — IIFE
 for (var i = 0; i < 3; i++) {
@@ -392,23 +408,26 @@ for (var i = 0; i < 3; i++) {
     setTimeout(() => console.log(j), 0);
   })(i);
 }
-// 0, 1, 2 ✅`}
+// 0, 1, 2`}
               label="Fixes"
             />
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="medium"
-          question={<CodeBlock code={`console.log("1");
+          label="Question 7"
+          question={<>
+            <p className="iq-q">Q7. Exact order?</p>
+            <CodeBlock code={`console.log("1");
 setTimeout(() => console.log("2"), 0);
 Promise.resolve().then(() => console.log("3"));
-console.log("4");`} filename="q7.js" />}
+console.log("4");`} filename="q7.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Order</span><code>1, 4, 3, 2</code></div>
             </div>
-
             <div className="this-table" style={{ marginTop: '0.75rem' }}>
               <table>
                 <thead>
@@ -421,12 +440,18 @@ console.log("4");`} filename="q7.js" />}
                 </tbody>
               </table>
             </div>
-          />}
+            <p className="iq-a" style={{ marginTop: '0.5rem' }}>
+              Microtasks always fully drain before any macrotask runs.
+            </p>
+          </>}
         />
 
         <CollapsibleQA
           difficulty="medium"
-          question={<CodeBlock code={`const obj = {
+          label="Question 8"
+          question={<>
+            <p className="iq-q">Q8. What logs?</p>
+            <CodeBlock code={`const obj = {
   val: 42,
   getVal: function() {
     return this.val;
@@ -435,28 +460,37 @@ console.log("4");`} filename="q7.js" />}
 
 const fn = obj.getVal;
 console.log(obj.getVal());
-console.log(fn());`} filename="q8.js" />}
+console.log(fn());`} filename="q8.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label"><code>obj.getVal()</code></span><code>42</code></div>
               <div className="iq-answer-row"><span className="iq-answer-label"><code>fn()</code></span><code>undefined</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>obj.getVal()</code> — <code>this</code> is <code>obj</code>. <code>fn()</code> —
-              plain function call, <code>this</code> is <code>window</code>/<code>undefined</code>. Same function,
-              different call site.
+              <code>obj.getVal()</code> — <code>this</code> is <code>obj</code>. Returns <code>42</code>.
             </p>
-          />}
+            <p className="iq-a">
+              <code>fn()</code> — plain function call. <code>this</code> is <code>window</code>/<code>undefined</code>.
+              <code>window.val</code> doesn't exist → <code>undefined</code>.
+            </p>
+            <p className="iq-a">
+              Same function, different call site, different <code>this</code>.
+            </p>
+          </>}
         />
       </section>
 
-      {/* Round 3: Senior */}
+      {/* Round 3 — Senior Level */}
       <section className="day-section">
         <span className="round-label">Round 3 — Senior Level</span>
 
         <CollapsibleQA
           difficulty="hard"
-          question={<CodeBlock code={`var x = 1;
+          label="Question 9"
+          question={<>
+            <p className="iq-q">Q9. What logs?</p>
+            <CodeBlock code={`var x = 1;
 
 function foo() {
   console.log(x);
@@ -464,22 +498,28 @@ function foo() {
 }
 
 foo();
-console.log(x);`} filename="q9.js" />}
+console.log(x);`} filename="q9.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">First log</span><code>undefined</code></div>
               <div className="iq-answer-row"><span className="iq-answer-label">Second log</span><code>1</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              Inside <code>foo</code>, <code>var x</code> is hoisted to the top — shadows
-              global <code>x</code>. Not yet assigned at log time. Global <code>x</code> is never touched.
+              Inside <code>foo</code>, <code>var x</code> is hoisted to the top of <code>foo</code>'s scope —
+              it shadows the global <code>x</code> immediately. But at <code>console.log(x)</code>, it's
+              still <code>undefined</code> (not yet assigned). Then <code>x = 2</code> assigns locally.
+              Global <code>x</code> is never touched → still <code>1</code>.
             </p>
-          />}
+          </>}
         />
 
         <CollapsibleQA
           difficulty="hard"
-          question={<CodeBlock code={`function outer() {
+          label="Question 10"
+          question={<>
+            <p className="iq-q">Q10. What logs? What pattern is this?</p>
+            <CodeBlock code={`function outer() {
   let count = 0;
 
   return {
@@ -493,22 +533,31 @@ const counter = outer();
 counter.increment();
 counter.increment();
 counter.decrement();
-console.log(counter.value());`} filename="q10.js" />}
+console.log(counter.value());`} filename="q10.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Output</span><code>1</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
               All three methods close over the <strong>same</strong> <code>count</code> in{' '}
-              <code>outer</code>'s environment. Each mutation is visible to all three. This is the{' '}
-              <strong>Module Pattern</strong> — private state via closure, public API via returned object.
+              <code>outer</code>'s environment. Each mutation is visible to all three.{' '}
+              <code>outer()</code> is gone from the stack but <code>count</code> lives on.
             </p>
-          />}
+            <p className="iq-a">
+              This is the <strong>Module Pattern</strong> — private state via closure,
+              public API via returned object. <code>count</code> is unreachable from outside
+              except through the three methods.
+            </p>
+          </>}
         />
 
         <CollapsibleQA
           difficulty="hard"
-          question={<CodeBlock code={`class Timer {
+          label="Question 11"
+          question={<>
+            <p className="iq-q">Q11. What happens? How do you fix it?</p>
+            <CodeBlock code={`class Timer {
   seconds = 0;
 
   start() {
@@ -520,16 +569,18 @@ console.log(counter.value());`} filename="q10.js" />}
 }
 
 const t = new Timer();
-t.start();`} filename="q11.js" />}
+t.start();`} filename="q11.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Output</span><code>NaN</code> (every second)</div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.5rem' }}>
-              <code>setInterval</code>'s callback is a regular function. In class body (strict mode),
-              <code>this</code> is <code>undefined</code>.
+              <code>setInterval</code>'s callback is a regular function. In strict mode (class body),
+              <code>this</code> is <code>undefined</code>. <code>undefined.seconds</code> throws —
+              or if not strict, <code>this</code> is <code>window</code>, and <code>window.seconds</code>{' '}
+              is <code>NaN</code> after <code>++</code>.
             </p>
-
             <CodeBlock
               code={`// Fix — Arrow function
 start() {
@@ -540,12 +591,19 @@ start() {
 }`}
               label="Fix"
             />
-          />}
+            <p className="iq-a">
+              Arrow inherits <code>this</code> from <code>start</code>'s execution context,
+              where <code>this</code> is the <code>Timer</code> instance.
+            </p>
+          </>}
         />
 
         <CollapsibleQA
           difficulty="hard"
-          question={<CodeBlock code={`console.log("A");
+          label="Question 12"
+          question={<>
+            <p className="iq-q">Q12. Exact order?</p>
+            <CodeBlock code={`console.log("A");
 
 setTimeout(() => console.log("B"), 0);
 
@@ -555,7 +613,8 @@ Promise.resolve().then(() => {
   Promise.resolve().then(() => console.log("E"));
 });
 
-console.log("F");`} filename="q12.js" />}
+console.log("F");`} filename="q12.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">Order</span><code>A, F, C, E, B, D</code></div>
@@ -563,23 +622,37 @@ console.log("F");`} filename="q12.js" />}
             <div className="concept-flow" style={{ marginTop: '0.75rem' }}>
               Sync: A, F
               <br />
-              Microtask 1: C → schedules D (macro: [B, D]), schedules E (micro: [E])
+              Microtask 1: C fires
               <br />
-              Microtask 2: E
+              &nbsp;&nbsp;→ schedules setTimeout D (macro: [B, D])
               <br />
-              Macrotask: B, then D
+              &nbsp;&nbsp;→ schedules Promise E (micro: [E])
+              <br />
+              Microtask 2: E fires (queue drains fully before macro)
+              <br />
+              Macrotask 1: B fires
+              <br />
+              Macrotask 2: D fires
             </div>
-          />}
+            <p className="iq-a" style={{ marginTop: '0.5rem' }}>
+              <code>D</code> queues <em>after</em> <code>B</code> — even though both are 0ms —
+              because <code>D</code> is created inside a microtask that runs after{' '}
+              <code>B</code> was already queued.
+            </p>
+          </>}
         />
       </section>
 
-      {/* Round 4: Final Boss */}
+      {/* Round 4 — The Final Boss */}
       <section className="day-section">
         <span className="round-label">Round 4 — The Final Boss</span>
 
         <CollapsibleQA
           difficulty="boss"
-          question={<CodeBlock code={`var x = 1;
+          label="Question 13"
+          question={<>
+            <p className="iq-q">Q13. What logs at A, B, C? Explain each.</p>
+            <CodeBlock code={`var x = 1;
 
 function foo() {
   console.log(x);      // A
@@ -597,7 +670,8 @@ function foo() {
 
 const bar = foo();
 const baz = bar();
-baz();`} filename="q13.js" />}
+baz();`} filename="q13.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">A →</span><code>undefined</code></div>
@@ -605,18 +679,33 @@ baz();`} filename="q13.js" />}
               <div className="iq-answer-row"><span className="iq-answer-label">C →</span><code>3</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.75rem' }}>
-              <strong>A:</strong> <code>var x</code> hoisted inside <code>foo</code>, shadows
-              global, not yet assigned. <strong>B:</strong> <code>bar</code> closes over{' '}
-              <code>foo</code>'s scope where <code>x = 2</code>. <strong>C:</strong> <code>bar</code>{' '}
-              mutated <code>x</code> to <code>3</code> (live reference). All three share one{' '}
-              <code>[[Environment]]</code> from <code>foo</code>.
+              <strong>A:</strong> Inside <code>foo</code>, <code>var x</code> is hoisted →{' '}
+              <code>undefined</code>. Shadows global <code>x</code>. Not assigned yet at log time.
             </p>
-          />}
+            <p className="iq-a">
+              <strong>B:</strong> <code>bar</code> closes over <code>foo</code>'s scope.{' '}
+              <code>x</code> was assigned <code>2</code> before <code>bar</code> was called.
+            </p>
+            <p className="iq-a">
+              <strong>C:</strong> <code>bar</code> mutated <code>x</code> to <code>3</code>{' '}
+              (live reference — same environment). <code>baz</code> closes over the same
+              environment. Reads the current value → <code>3</code>.
+            </p>
+            <div className="article-callout" style={{ marginTop: '0.75rem' }}>
+              <p>
+                All three functions share one <code>[[Environment]]</code> from <code>foo</code>.
+                Mutations by one are visible to all others.
+              </p>
+            </div>
+          </>}
         />
 
         <CollapsibleQA
           difficulty="boss"
-          question={<CodeBlock code={`function make() {
+          label="Question 14"
+          question={<>
+            <p className="iq-q">Q14. What logs at A, B, C, D?</p>
+            <CodeBlock code={`function make() {
   const fns = [];
 
   for (let i = 0; i < 3; i++) {
@@ -634,7 +723,8 @@ console.log(fns[0].get()); // A
 console.log(fns[1].get()); // B
 fns[0].set(99);
 console.log(fns[0].get()); // C
-console.log(fns[1].get()); // D`} filename="q14.js" />}
+console.log(fns[1].get()); // D`} filename="q14.js" />
+          </>}
           answer={<>
             <div className="iq-answers">
               <div className="iq-answer-row"><span className="iq-answer-label">A →</span><code>0</code></div>
@@ -643,19 +733,31 @@ console.log(fns[1].get()); // D`} filename="q14.js" />}
               <div className="iq-answer-row"><span className="iq-answer-label">D →</span><code>1</code></div>
             </div>
             <p className="iq-a" style={{ marginTop: '0.75rem' }}>
-              <code>let</code> gives each iteration a private <code>i</code>.{' '}
-              <code>fns[0].set(99)</code> only mutates <code>fns[0]</code>'s own <code>i</code>.{' '}
-              <code>fns[1]</code> is completely independent — still <code>1</code>.
+              <code>let</code> creates a new binding per iteration — each object closes over
+              its <em>own</em> <code>i</code>. So <code>fns[0]</code> has <code>i = 0</code>,{' '}
+              <code>fns[1]</code> has <code>i = 1</code>, <code>fns[2]</code> has <code>i = 2</code>.
             </p>
-          />}
+            <p className="iq-a">
+              <code>fns[0].set(99)</code> mutates <code>fns[0]</code>'s own <code>i</code> to{' '}
+              <code>99</code>. <code>fns[1]</code>'s <code>i</code> is completely independent —
+              still <code>1</code>.
+            </p>
+            <p className="iq-a">
+              This is the opposite of the <code>var</code> loop problem. <code>let</code> gives
+              each iteration a private environment.
+            </p>
+          </>}
         />
 
         <CollapsibleQA
           difficulty="boss"
-          question={<p className="iq-q">Design Question: *"Explain how you would implement private state in JavaScript without using classes or WeakMap."*</p>}
+          label="Question 15"
+          question={
+            <p className="iq-q">Q15 — Design Question: "Explain how you would implement private state in JavaScript without using classes or WeakMap."</p>
+          }
           answer={<>
             <p className="iq-a" style={{ marginTop: '0.75rem' }}>
-              <strong>Use closures — the Revealing Module Pattern.</strong>
+              <strong>Use closures.</strong>
             </p>
             <CodeBlock
               code={`function createUser(name, age) {
@@ -681,14 +783,20 @@ console.log(user._age);   // undefined — truly private`}
             />
             <p className="iq-a">
               <code>_name</code> and <code>_age</code> live in <code>createUser</code>'s closure.
-              The returned object's methods close over that environment. Nothing outside can touch them
-              directly.
+              The returned object's methods close over that environment. Nothing outside can touch{' '}
+              <code>_name</code> or <code>_age</code> directly.
             </p>
-          />}
+            <div className="article-callout" style={{ marginTop: '0.75rem' }}>
+              <p>
+                This is the <strong>Revealing Module Pattern</strong> — one of the most important
+                practical applications of the scope chain.
+              </p>
+            </div>
+          </>}
         />
       </section>
 
-      {/* ── Part 3: Self Score ─────────────────────────── */}
+      {/* ── Part 3: Self Score ────────────────────────────── */}
       <section className="challenge-section">
         <span className="challenge-label">Part 3 — Self Score</span>
 
@@ -756,11 +864,9 @@ console.log(user._age);   // undefined — truly private`}
         </div>
       </section>
 
-      {/* ── What To Study Next ──────────────────────────── */}
+      {/* ── What To Study Next ────────────────────────────── */}
       <section className="week-bridge">
-        <p>
-          Based on this series, the natural next topics are:
-        </p>
+        <p><strong>What To Study Next</strong></p>
 
         <div className="topics-table">
           <table>

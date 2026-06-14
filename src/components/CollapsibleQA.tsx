@@ -5,37 +5,37 @@ interface CollapsibleQAProps {
   answer: ReactNode
   difficulty?: 'easy' | 'medium' | 'hard' | 'boss'
   defaultOpen?: boolean
+  label?: string
 }
 
-export default function CollapsibleQA({ question, answer, difficulty, defaultOpen = false }: CollapsibleQAProps) {
-  const [open, setOpen] = useState(defaultOpen)
-
-  const handleToggle = () => setOpen(!open)
+export default function CollapsibleQA({ question, answer, difficulty, defaultOpen = false, label }: CollapsibleQAProps) {
+  const [questionOpen, setQuestionOpen] = useState(defaultOpen)
+  const [answerOpen, setAnswerOpen] = useState(false)
 
   return (
-    <div className={`collapsible-qa ${open ? 'is-open' : ''} ${difficulty ? `diff-${difficulty}` : ''}`}>
+    <div className={`collapsible-qa ${difficulty ? `diff-${difficulty}` : ''}`}>
       <button
         className="collapsible-toggle"
-        onClick={handleToggle}
-        aria-expanded={open}
+        onClick={() => setQuestionOpen(!questionOpen)}
+        aria-expanded={questionOpen}
       >
-        <span className="collapsible-label">Question</span>
-        <span className="collapsible-arrow">{open ? '↓' : '→'}</span>
+        <span className="collapsible-label">{label ?? 'Question'}</span>
+        <span className="collapsible-arrow">{questionOpen ? '↓' : '→'}</span>
       </button>
-      {open && (
+      {questionOpen && (
         <div className="collapsible-question">{question}</div>
       )}
-      {open && (
+      {questionOpen && (
         <div className="collapsible-answer">
           <button
             className="collapsible-toggle collapsible-answer-toggle"
-            onClick={handleToggle}
-            aria-expanded={open}
+            onClick={() => setAnswerOpen(!answerOpen)}
+            aria-expanded={answerOpen}
           >
-            <span className="collapsible-label">Answer + Explanation</span>
-            <span className="collapsible-arrow">↓</span>
+            <span className="collapsible-label">{label ? `Answer ${label.replace(/^Question\s*/, '')}` : 'Answer + Explanation'}</span>
+            <span className="collapsible-arrow">{answerOpen ? '↓' : '→'}</span>
           </button>
-          {open && <div className="collapsible-answer-content">{answer}</div>}
+          {answerOpen && <div className="collapsible-answer-content">{answer}</div>}
         </div>
       )}
     </div>
