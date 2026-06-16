@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, type LinkProps } from '@tanstack/react-router'
 import ThemeToggle from './ThemeToggle'
 import { useState, type ReactNode } from 'react'
 import './ContentLayout.css'
@@ -81,7 +81,7 @@ export default function ContentLayout({ title, subtitle, navItems, children }: C
               return (
                 <li key={item.path}>
                   <Link
-                    to={item.path}
+                    to={item.path as LinkProps['to']}
                     className={`sidebar-link ${isActive ? 'is-active' : ''}`}
                     onClick={() => setSidebarOpen(false)}
                   >

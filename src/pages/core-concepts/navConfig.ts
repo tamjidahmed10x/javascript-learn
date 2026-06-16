@@ -1,7 +1,8 @@
+import type { LinkProps } from '@tanstack/react-router'
 import type { NavItem } from '../../components/ContentLayout'
 import type { DayNavLink } from '../../components/DayNav'
 
-export const week1NavItems: NavItem[] = [
+export const week1NavItems: (NavItem & { path: LinkProps['to'] })[] = [
   { label: 'Day 1: How JS Executes Code', path: '/core-concepts/execution-context-scope/day-1' },
   { label: 'Day 2: Hoisting', path: '/core-concepts/execution-context-scope/day-2' },
   { label: 'Day 3: TDZ + let + const', path: '/core-concepts/execution-context-scope/day-3' },

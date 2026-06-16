@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, type LinkProps } from '@tanstack/react-router'
 import ContentLayout, { type NavItem } from '../../components/ContentLayout'
 import { week1NavItems } from './navConfig'
 import '../../components/ContentStyles.css'
@@ -36,7 +36,7 @@ export default function Week1Index() {
 
       <div className="day-grid">
         {daySummaries.map((day) => (
-          <Link key={day.day} to={`/core-concepts/execution-context-scope/day-${day.day}`} className="day-card">
+          <Link key={day.day} to={`/core-concepts/execution-context-scope/day-${day.day}` as LinkProps['to']} className="day-card">
             <div className="day-card-header">
               <span className="day-card-num">{day.day}</span>
               <svg className="day-card-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

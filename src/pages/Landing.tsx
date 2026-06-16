@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, type LinkProps } from '@tanstack/react-router'
 import ThemeToggle from '../components/ThemeToggle'
 import './Landing.css'
 
@@ -190,7 +190,7 @@ function SectionCard({
 }) {
   return (
     <Link
-      to={path}
+      to={path as LinkProps['to']}
       className="section-card"
       style={{ '--card-i': index } as React.CSSProperties}
     >
