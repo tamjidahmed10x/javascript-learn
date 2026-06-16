@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# TanStack Start / Nitro / Wrangler build output
+.output
+.wrangler
+.nitro
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
