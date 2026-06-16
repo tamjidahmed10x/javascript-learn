@@ -8,7 +8,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "start": "wrangler dev",
-    "preview": "wrangler dev",
+    "preview": "nitro preview",
     "deploy": "wrangler deploy",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
