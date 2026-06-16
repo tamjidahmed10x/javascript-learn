@@ -20,6 +20,28 @@ export default function Day6() {
         <h1 className="lesson-title">Hard Interview Problems</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            Twelve problems that expose whether you understand JS internals — hoisting, TDZ, scope,
+            <code>this</code>, closures, and the event loop — or only memorized their definitions.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            For each problem, predict the output <em>first</em>, then read the breakdown that names the
+            exact internal mechanism causing the behavior.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            In technical interviews — and any time you're debugging code that behaves in a way you can't
+            immediately explain.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -32,6 +54,38 @@ export default function Day6() {
         <p className="article-para">
           Every problem here has caught real developers off guard in real interviews.
         </p>
+
+        <h3 className="article-h3">Key mechanisms these problems hinge on</h3>
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Call Site</dt>
+            <dd className="def-text">
+              The exact place in code where a function is invoked. For regular (non-arrow) functions,
+              the call site — not the definition — decides what <code>this</code> refers to.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Closure</dt>
+            <dd className="def-text">
+              A function bundled with the environment it was defined in. It keeps that environment
+              alive for as long as the function can still be called.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Live Reference</dt>
+            <dd className="def-text">
+              A closure captures the variable <em>binding</em>, not a snapshot of its value. Every read
+              returns whatever the value is at access time.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Microtask vs Macrotask</dt>
+            <dd className="def-text">
+              The two async queues. Microtasks (Promise callbacks) always drain fully before the next
+              macrotask (<code>setTimeout</code>) is allowed to run.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── P1: Hoisting Priority War ─────────────────────── */}

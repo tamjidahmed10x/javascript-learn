@@ -20,6 +20,32 @@ export default function Day3() {
         <h1 className="lesson-title">TDZ + let + const</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            The <strong>Temporal Dead Zone (TDZ)</strong> is the time between a{' '}
+            <code>let</code>/<code>const</code>/<code>class</code> binding being registered and its
+            declaration line executing. Accessing it in that window throws a{' '}
+            <code>ReferenceError</code>.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            During creation phase the binding is created but left uninitialized. Any read before the
+            declaration line — even <code>typeof</code> — throws. The zone ends the instant that line
+            runs.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            Whenever you use <code>let</code>, <code>const</code>, or <code>class</code>. Any access
+            earlier in the same scope than the declaration triggers it — including a same-named
+            variable that shadows an outer one.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -28,6 +54,25 @@ export default function Day3() {
           <code>let</code> and <code>const</code> were added in ES6 (2015) to fix scoping and
           predictability. The Temporal Dead Zone is the mechanism that enforces their rules.
         </p>
+
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Temporal Dead Zone (TDZ)</dt>
+            <dd className="def-text">
+              The time window in which a <code>let</code>/<code>const</code>/<code>class</code>{' '}
+              binding exists in memory but is not yet initialized. It is a <em>time</em> window, not a
+              place — and any access during it throws <code>ReferenceError</code>.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Block Scope</dt>
+            <dd className="def-text">
+              Visibility limited to the enclosing <code>{'{ }'}</code> block. <code>let</code> and{' '}
+              <code>const</code> are block-scoped; <code>var</code> ignores blocks and leaks out to the
+              nearest function.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── Analogy ───────────────────────────────────────── */}

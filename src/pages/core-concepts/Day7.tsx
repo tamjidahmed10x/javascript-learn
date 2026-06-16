@@ -26,12 +26,94 @@ export default function Day7() {
         </p>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            A two-part consolidation session — rapid-fire concept revision, then a 15-question mock
+            interview across four difficulty rounds.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            Skim each rapid-fire prompt, recall the answer, then reveal. Then attempt every interview
+            question before expanding its answer.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            At the end of Week 1 — to lock in the execution model and self-assess before moving on to
+            closures, prototypes, and async.
+          </p>
+        </div>
+      </div>
+
       {/* ── Part 1: Rapid Fire Revision ──────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Part 1 — Rapid Fire Revision</h2>
         <p className="article-para">
           No code. Just concepts. Read each, recall the answer, then check.
         </p>
+
+        <h3 className="article-h3">Key terms to recall</h3>
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Execution Context</dt>
+            <dd className="def-text">
+              The environment JS builds to run code — its variable environment, scope chain, and{' '}
+              <code>this</code> binding.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Hoisting</dt>
+            <dd className="def-text">
+              Creation-phase registration of declarations before code runs: <code>var</code> →{' '}
+              <code>undefined</code>, function declarations → full body, <code>let</code>/<code>const</code>{' '}
+              → TDZ.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">TDZ</dt>
+            <dd className="def-text">
+              The time window where a <code>let</code>/<code>const</code>/<code>class</code> binding
+              exists but is uninitialized; any access throws <code>ReferenceError</code>.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Scope</dt>
+            <dd className="def-text">
+              The rules governing where a variable is visible — global, function, block, or module.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Scope Chain</dt>
+            <dd className="def-text">
+              The linked environments the engine walks to resolve a non-local variable, fixed at
+              function definition time.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Closure</dt>
+            <dd className="def-text">
+              A function plus the environment it was defined in; it keeps that environment alive after
+              the outer call has returned.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term"><code>this</code></dt>
+            <dd className="def-text">
+              A value set by the call site of a regular function; arrow functions inherit it from their
+              surrounding context instead.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Event Loop</dt>
+            <dd className="def-text">
+              The mechanism that processes synchronous code, then fully drains the microtask queue,
+              then runs one macrotask — repeating in that order.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* Execution Context */}

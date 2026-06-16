@@ -20,6 +20,29 @@ export default function Day5() {
         <h1 className="lesson-title">Scope Chain Deep Dive</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            The <strong>scope chain</strong> is the linked list of environments the engine walks to
+            resolve a variable that isn't found in the current scope.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            Each function captures its defining environment as an internal{' '}
+            <code>[[Environment]]</code> reference at <em>definition time</em>. Lookups follow these
+            links outward — local → parent → … → global — stopping at the first match.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            On every variable lookup that isn't local, and for the entire lifetime of any closure that
+            keeps a reference to an outer environment alive.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -29,6 +52,30 @@ export default function Day5() {
           Get this wrong in your mental model and closures, bugs, and <code>undefined</code> will
           never fully make sense.
         </p>
+
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Scope Chain</dt>
+            <dd className="def-text">
+              The ordered sequence of environments searched to resolve a name. Built once, at function
+              definition time; never changes, no matter where or how the function is later called.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term"><code>[[Environment]]</code></dt>
+            <dd className="def-text">
+              The hidden internal reference every function stores to the environment it was defined in.
+              It is the single link that connects one scope to its parent in the chain.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Variable Shadowing</dt>
+            <dd className="def-text">
+              When an inner scope declares a name that already exists in an outer scope. The inner one
+              wins locally; the outer is invisible from inside that scope but is not destroyed.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── Analogy ───────────────────────────────────────── */}

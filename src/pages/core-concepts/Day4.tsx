@@ -20,6 +20,29 @@ export default function Day4() {
         <h1 className="lesson-title">Scope</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            <strong>Scope</strong> is the set of rules that decides where a variable can be seen and
+            used. It is the boundary around a name's visibility.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            JavaScript uses <em>lexical</em> scoping — scope is fixed by where code is written.
+            Functions and blocks create scope levels; when a name isn't local, the engine walks up the
+            scope chain.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            On every variable access. Scope decides whether the name resolves, shadows an outer one,
+            or throws <code>ReferenceError</code>.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -28,6 +51,23 @@ export default function Day4() {
           decides who has access to it. Get it wrong and you get <code>undefined</code>,{' '}
           <code>ReferenceError</code>, or worse — accidental globals silently breaking things.
         </p>
+
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Scope</dt>
+            <dd className="def-text">
+              The region of code where a variable is accessible. JavaScript has four kinds: global,
+              function, block, and module scope.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Lexical (Static) Scope</dt>
+            <dd className="def-text">
+              Scope determined by where code is <em>written</em> in the source, not where the function
+              is <em>called</em>. A function carries its scope from its definition site.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── Analogy ───────────────────────────────────────── */}

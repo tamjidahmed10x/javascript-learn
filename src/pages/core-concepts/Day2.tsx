@@ -20,6 +20,30 @@ export default function Day2() {
         <h1 className="lesson-title">Hoisting</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            <strong>Hoisting</strong> is the creation-phase behavior that registers declarations in
+            memory before a scope's code runs — so variable and function names exist before the line
+            that declares them.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            During creation, <code>var</code> is hoisted and set to <code>undefined</code>; function
+            declarations are hoisted with their full body; <code>let</code>/<code>const</code>/{' '}
+            <code>class</code> are hoisted but left in the Temporal Dead Zone.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            Automatically, the moment JavaScript prepares any scope — the global script or any
+            function — to execute.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -28,6 +52,27 @@ export default function Day2() {
           declarations to the top of their scope in memory. That's hoisting. It's why you can call a
           function before you write it.
         </p>
+
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Hoisting</dt>
+            <dd className="def-text">
+              The creation-phase mechanism that registers variable and function declarations in memory
+              before a scope's code executes. The <em>name</em> exists from the start; the{' '}
+              <em>value</em> depends on the keyword — <code>var</code> is <code>undefined</code>, a
+              function declaration is fully callable, <code>let</code>/<code>const</code> sit in the
+              TDZ.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Creation Phase</dt>
+            <dd className="def-text">
+              The first pass over a scope, before any line runs. The engine scans for declarations,
+              hoists them into the variable environment, and sets up <code>this</code> and the scope
+              chain. No code executes yet.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── Analogy ───────────────────────────────────────── */}

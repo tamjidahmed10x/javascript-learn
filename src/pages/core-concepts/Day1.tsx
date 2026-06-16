@@ -20,6 +20,30 @@ export default function Day1() {
         <h1 className="lesson-title">How JavaScript Executes Code</h1>
       </div>
 
+      {/* ── At a Glance ───────────────────────────────────── */}
+      <div className="glance">
+        <span className="glance-title">At a Glance</span>
+        <div className="glance-grid">
+          <span className="glance-label">What</span>
+          <p className="glance-text">
+            An <strong>execution context</strong> is the environment JavaScript builds around a piece
+            of code before running it — its variable bindings, the scope chain, and the{' '}
+            <code>this</code> value.
+          </p>
+          <span className="glance-label">How</span>
+          <p className="glance-text">
+            Each context is created in two phases: <em>creation</em> (register declarations, set up
+            scope chain and <code>this</code>) then <em>execution</em> (run line by line). Contexts
+            stack on the call stack and pop when finished.
+          </p>
+          <span className="glance-label">When</span>
+          <p className="glance-text">
+            Always. One global context per script, plus a brand-new context every time a function is
+            called.
+          </p>
+        </div>
+      </div>
+
       {/* ── Introduction ──────────────────────────────────── */}
       <section className="day-section">
         <h2 className="article-h2">Introduction</h2>
@@ -31,6 +55,25 @@ export default function Day1() {
           Every weird bug with <code>undefined</code>, wrong <code>this</code>, or "variable not
           defined"? Execution context is behind it.
         </p>
+
+        <dl className="definition-list">
+          <div className="definition">
+            <dt className="def-term">Execution Context</dt>
+            <dd className="def-text">
+              The data structure JavaScript creates to run a piece of code. It holds the variable
+              environment, the scope chain, and the <code>this</code> binding. One exists per script
+              (global) and one is created per function call.
+            </dd>
+          </div>
+          <div className="definition">
+            <dt className="def-term">Call Stack</dt>
+            <dd className="def-text">
+              The LIFO stack that tracks which execution context is currently running. The global
+              context sits at the bottom; each function call pushes a new context, each return pops
+              one.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       {/* ── Analogy ───────────────────────────────────────── */}
