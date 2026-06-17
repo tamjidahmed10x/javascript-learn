@@ -1,39 +1,7 @@
 import { Link, type LinkProps } from '@tanstack/react-router'
 import ThemeToggle from '../components/ThemeToggle'
+import { curriculum, weekPath } from './core-concepts/curriculum'
 import './Landing.css'
-
-/* ── Data ────────────────────────────────────────────────────── */
-
-const sections = [
-  {
-    title: 'Core Concepts',
-    description:
-      'Closures, prototypal inheritance, the event loop, execution context, scope chains, `this` binding — the fundamentals interviewers probe deepest.',
-    path: '/core-concepts/execution-context-scope',
-    tag: 'Internals',
-  },
-  {
-    title: 'Interview Prep',
-    description:
-      'Common patterns, system design in JavaScript, algorithm fundamentals, and the conceptual questions that separate candidates.',
-    path: '/interview-prep',
-    tag: 'Practice',
-  },
-  {
-    title: 'Browser & DOM',
-    description:
-      'Event delegation, the rendering pipeline, layout thrashing, the critical rendering path, Web APIs, and performance patterns.',
-    path: '/browser-dom',
-    tag: 'Runtime',
-  },
-  {
-    title: 'Modern JS Features',
-    description:
-      'ES modules, promises & async/await internals, iterators & generators, proxies, symbols, and the language features reshaping the ecosystem.',
-    path: '/modern-js',
-    tag: 'ES2024+',
-  },
-]
 
 /* ── Simple syntax highlighter (no dependency) ─────────────────── */
 
@@ -51,7 +19,7 @@ function highlightJS(code: string): React.ReactNode[] {
         parts.push(
           <span key={key++} className="comment">
             {commentMatch[1]}
-          </span>
+          </span>,
         )
         remaining = remaining.slice(commentMatch[1].length)
         continue
@@ -63,7 +31,7 @@ function highlightJS(code: string): React.ReactNode[] {
         parts.push(
           <span key={key++} className="string">
             {stringMatch[0]}
-          </span>
+          </span>,
         )
         remaining = remaining.slice(stringMatch[0].length)
         continue
@@ -75,7 +43,7 @@ function highlightJS(code: string): React.ReactNode[] {
         parts.push(
           <span key={key++} className="number">
             {numMatch[1]}
-          </span>
+          </span>,
         )
         remaining = remaining.slice(numMatch[1].length)
         continue
@@ -83,13 +51,13 @@ function highlightJS(code: string): React.ReactNode[] {
 
       // Keywords
       const kwMatch = remaining.match(
-        /^(function|return|let|const|var|if|else|for|while|new|class|extends|import|export|from|async|await|yield|typeof|instanceof|in|of|switch|case|break|continue|default|try|catch|throw|finally|this|true|false|null|undefined|void|delete)\b/
+        /^(function|return|let|const|var|if|else|for|while|new|class|extends|import|export|from|async|await|yield|typeof|instanceof|in|of|switch|case|break|continue|default|try|catch|throw|finally|this|true|false|null|undefined|void|delete)\b/,
       )
       if (kwMatch) {
         parts.push(
           <span key={key++} className="keyword">
             {kwMatch[1]}
-          </span>
+          </span>,
         )
         remaining = remaining.slice(kwMatch[1].length)
         continue
@@ -102,7 +70,7 @@ function highlightJS(code: string): React.ReactNode[] {
         parts.push(
           <span key={key++} className="function">
             {fnMatch[1]}
-          </span>
+          </span>,
         )
         remaining = remaining.slice(fnMatch[1].length)
         continue
@@ -166,68 +134,75 @@ function Hero() {
           Learn JavaScript&nbsp;<span className="hero-accent">to its core.</span>
         </h1>
         <p className="hero-subtitle">
-          Structured, opinionated deep-dives into the internals that matter in
-          interviews. Written for developers who already write JS — now it's time
-          to explain it.
+          A structured 8-week path from execution context to engine internals.
+          Written for developers who already write JS — now it&apos;s time to explain it.
         </p>
       </div>
     </section>
   )
 }
 
-function SectionCard({
-  title,
-  description,
-  path,
-  tag,
-  index,
-}: {
-  title: string
-  description: string
-  path: string
-  tag: string
-  index: number
-}) {
+const MONTHS = [
+  { month: 1 as const, label: 'Month 1 — Core Mastery' },
+  { month: 2 as const, label: 'Month 2 — Expert Level' },
+]
+
+function CurriculumRow({ index }: { index: number }) {
+  const week = curriculum[index]
+  const available = week.status === 'available'
   return (
     <Link
-      to={path as LinkProps['to']}
-      className="section-card"
-      style={{ '--card-i': index } as React.CSSProperties}
+      to={weekPath(week.slug) as LinkProps['to']}
+      className="curriculum-row"
+      style={{ '--row-i': index } as React.CSSProperties}
     >
-      <div className="card-header">
-        <span className="card-tag">{tag}</span>
-        <svg
-          className="card-arrow"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </div>
-      <h3 className="card-title">{title}</h3>
-      <p className="card-description">{description}</p>
+      <span className="curriculum-wk">{String(week.week).padStart(2, '0')}</span>
+      <span className="curriculum-body">
+        <span className="curriculum-title">{week.title}</span>
+        <span className="curriculum-desc">{week.subtitle}</span>
+      </span>
+      <span className={`curriculum-status ${available ? 'is-available' : 'is-upcoming'}`}>
+        {available ? 'Available' : 'Coming soon'}
+      </span>
+      <svg
+        className="curriculum-arrow"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </svg>
     </Link>
   )
 }
 
-function TopicsGrid() {
+function Curriculum() {
   return (
-    <section className="topics" id="topics">
+    <section className="topics" id="curriculum">
       <div className="topics-inner">
-        <h2 className="topics-heading">Learning paths</h2>
-        <div className="topics-grid">
-          {sections.map((section, i) => (
-            <SectionCard key={section.path} {...section} index={i} />
-          ))}
-        </div>
+        <h2 className="topics-heading">Curriculum</h2>
+        {MONTHS.map((m) => {
+          const weeks = curriculum
+            .map((w, i) => ({ w, i }))
+            .filter(({ w }) => w.month === m.month)
+          return (
+            <div key={m.month} className="curriculum-month">
+              <h3 className="curriculum-month-label">{m.label}</h3>
+              <div className="curriculum-list">
+                {weeks.map(({ i }) => (
+                  <CurriculumRow key={curriculum[i].slug} index={i} />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
@@ -287,7 +262,7 @@ export default function Landing() {
       <Header />
       <main>
         <Hero />
-        <TopicsGrid />
+        <Curriculum />
         <CodePreview />
       </main>
       <Footer />

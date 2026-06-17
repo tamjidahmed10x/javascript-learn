@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import WeekIndexPage from '../../../pages/core-concepts/WeekIndexPage'
 
-export const Route = createFileRoute('/core-concepts/execution-context-scope/')({
+export const Route = createFileRoute('/core-concepts/closures-functions/')({
   component: WeekIndexPage,
 })

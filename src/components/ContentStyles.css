@@ -659,3 +659,73 @@ body.light .day-card-topics li {
 body.light .day-card-topics li::before {
   color: var(--color-muted-light);
 }
+
+/* ── Status + coming-soon ───────────────────────────────────────── */
+
+/* Distinct "In progress" chip inside the lesson meta row. */
+.lesson-meta-status {
+  color: var(--color-accent);
+  border-color: color-mix(in oklch, var(--color-accent) 35%, transparent);
+  background-color: color-mix(in oklch, var(--color-accent) 8%, transparent);
+}
+
+body.light .lesson-meta-status {
+  color: var(--color-accent-light);
+  border-color: color-mix(in oklch, var(--color-accent-light) 35%, transparent);
+  background-color: color-mix(in oklch, var(--color-accent-light) 8%, transparent);
+}
+
+/* One-line note under an upcoming week's header. */
+.week-status-line {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin: -1rem 0 2rem;
+  transition: color 0.4s var(--ease-out-quart);
+}
+
+body.light .week-status-line {
+  color: var(--color-muted-light);
+}
+
+/* Planned-topics block on a coming-soon day page. */
+.coming-soon-topics {
+  margin: 1.5rem 0;
+}
+
+/* Inline "Back to …" link. */
+.coming-soon-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background-color: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background-color 0.2s var(--ease-out-quart),
+    border-color 0.2s var(--ease-out-quart),
+    color 0.2s var(--ease-out-quart);
+}
+
+.coming-soon-back:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+  color: var(--color-primary);
+}
+
+body.light .coming-soon-back {
+  border-color: var(--color-border-light);
+  background-color: var(--color-surface-light);
+  color: var(--color-ink-light);
+}
+
+body.light .coming-soon-back:hover {
+  background-color: var(--color-surface-hover-light);
+  border-color: var(--color-border-hover-light);
+  color: var(--color-primary-light);
+}

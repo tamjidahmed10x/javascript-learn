@@ -11,7 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoreConceptsExecutionContextGuideRouteImport } from './routes/core-concepts/execution-context-guide'
+import { Route as CoreConceptsPrototypesOopIndexRouteImport } from './routes/core-concepts/prototypes-oop/index'
+import { Route as CoreConceptsModulesPerfMemoryIndexRouteImport } from './routes/core-concepts/modules-perf-memory/index'
+import { Route as CoreConceptsJsEngineInternalsIndexRouteImport } from './routes/core-concepts/js-engine-internals/index'
 import { Route as CoreConceptsExecutionContextScopeIndexRouteImport } from './routes/core-concepts/execution-context-scope/index'
+import { Route as CoreConceptsConsolidationIndexRouteImport } from './routes/core-concepts/consolidation/index'
+import { Route as CoreConceptsClosuresFunctionsIndexRouteImport } from './routes/core-concepts/closures-functions/index'
+import { Route as CoreConceptsAsyncJsIndexRouteImport } from './routes/core-concepts/async-js/index'
+import { Route as CoreConceptsAdvancedPatternsIndexRouteImport } from './routes/core-concepts/advanced-patterns/index'
+import { Route as CoreConceptsPrototypesOopDayRouteImport } from './routes/core-concepts/prototypes-oop/$day'
+import { Route as CoreConceptsModulesPerfMemoryDayRouteImport } from './routes/core-concepts/modules-perf-memory/$day'
+import { Route as CoreConceptsJsEngineInternalsDayRouteImport } from './routes/core-concepts/js-engine-internals/$day'
 import { Route as CoreConceptsExecutionContextScopeDay7RouteImport } from './routes/core-concepts/execution-context-scope/day-7'
 import { Route as CoreConceptsExecutionContextScopeDay6RouteImport } from './routes/core-concepts/execution-context-scope/day-6'
 import { Route as CoreConceptsExecutionContextScopeDay5RouteImport } from './routes/core-concepts/execution-context-scope/day-5'
@@ -19,6 +29,10 @@ import { Route as CoreConceptsExecutionContextScopeDay4RouteImport } from './rou
 import { Route as CoreConceptsExecutionContextScopeDay3RouteImport } from './routes/core-concepts/execution-context-scope/day-3'
 import { Route as CoreConceptsExecutionContextScopeDay2RouteImport } from './routes/core-concepts/execution-context-scope/day-2'
 import { Route as CoreConceptsExecutionContextScopeDay1RouteImport } from './routes/core-concepts/execution-context-scope/day-1'
+import { Route as CoreConceptsConsolidationDayRouteImport } from './routes/core-concepts/consolidation/$day'
+import { Route as CoreConceptsClosuresFunctionsDayRouteImport } from './routes/core-concepts/closures-functions/$day'
+import { Route as CoreConceptsAsyncJsDayRouteImport } from './routes/core-concepts/async-js/$day'
+import { Route as CoreConceptsAdvancedPatternsDayRouteImport } from './routes/core-concepts/advanced-patterns/$day'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -31,10 +45,70 @@ const CoreConceptsExecutionContextGuideRoute =
     path: '/core-concepts/execution-context-guide',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CoreConceptsPrototypesOopIndexRoute =
+  CoreConceptsPrototypesOopIndexRouteImport.update({
+    id: '/core-concepts/prototypes-oop/',
+    path: '/core-concepts/prototypes-oop/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsModulesPerfMemoryIndexRoute =
+  CoreConceptsModulesPerfMemoryIndexRouteImport.update({
+    id: '/core-concepts/modules-perf-memory/',
+    path: '/core-concepts/modules-perf-memory/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsJsEngineInternalsIndexRoute =
+  CoreConceptsJsEngineInternalsIndexRouteImport.update({
+    id: '/core-concepts/js-engine-internals/',
+    path: '/core-concepts/js-engine-internals/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CoreConceptsExecutionContextScopeIndexRoute =
   CoreConceptsExecutionContextScopeIndexRouteImport.update({
     id: '/core-concepts/execution-context-scope/',
     path: '/core-concepts/execution-context-scope/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsConsolidationIndexRoute =
+  CoreConceptsConsolidationIndexRouteImport.update({
+    id: '/core-concepts/consolidation/',
+    path: '/core-concepts/consolidation/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsClosuresFunctionsIndexRoute =
+  CoreConceptsClosuresFunctionsIndexRouteImport.update({
+    id: '/core-concepts/closures-functions/',
+    path: '/core-concepts/closures-functions/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsAsyncJsIndexRoute =
+  CoreConceptsAsyncJsIndexRouteImport.update({
+    id: '/core-concepts/async-js/',
+    path: '/core-concepts/async-js/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsAdvancedPatternsIndexRoute =
+  CoreConceptsAdvancedPatternsIndexRouteImport.update({
+    id: '/core-concepts/advanced-patterns/',
+    path: '/core-concepts/advanced-patterns/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsPrototypesOopDayRoute =
+  CoreConceptsPrototypesOopDayRouteImport.update({
+    id: '/core-concepts/prototypes-oop/$day',
+    path: '/core-concepts/prototypes-oop/$day',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsModulesPerfMemoryDayRoute =
+  CoreConceptsModulesPerfMemoryDayRouteImport.update({
+    id: '/core-concepts/modules-perf-memory/$day',
+    path: '/core-concepts/modules-perf-memory/$day',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsJsEngineInternalsDayRoute =
+  CoreConceptsJsEngineInternalsDayRouteImport.update({
+    id: '/core-concepts/js-engine-internals/$day',
+    path: '/core-concepts/js-engine-internals/$day',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CoreConceptsExecutionContextScopeDay7Route =
@@ -79,10 +153,37 @@ const CoreConceptsExecutionContextScopeDay1Route =
     path: '/core-concepts/execution-context-scope/day-1',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CoreConceptsConsolidationDayRoute =
+  CoreConceptsConsolidationDayRouteImport.update({
+    id: '/core-concepts/consolidation/$day',
+    path: '/core-concepts/consolidation/$day',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsClosuresFunctionsDayRoute =
+  CoreConceptsClosuresFunctionsDayRouteImport.update({
+    id: '/core-concepts/closures-functions/$day',
+    path: '/core-concepts/closures-functions/$day',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CoreConceptsAsyncJsDayRoute = CoreConceptsAsyncJsDayRouteImport.update({
+  id: '/core-concepts/async-js/$day',
+  path: '/core-concepts/async-js/$day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoreConceptsAdvancedPatternsDayRoute =
+  CoreConceptsAdvancedPatternsDayRouteImport.update({
+    id: '/core-concepts/advanced-patterns/$day',
+    path: '/core-concepts/advanced-patterns/$day',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
+  '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
+  '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
+  '/core-concepts/closures-functions/$day': typeof CoreConceptsClosuresFunctionsDayRoute
+  '/core-concepts/consolidation/$day': typeof CoreConceptsConsolidationDayRoute
   '/core-concepts/execution-context-scope/day-1': typeof CoreConceptsExecutionContextScopeDay1Route
   '/core-concepts/execution-context-scope/day-2': typeof CoreConceptsExecutionContextScopeDay2Route
   '/core-concepts/execution-context-scope/day-3': typeof CoreConceptsExecutionContextScopeDay3Route
@@ -90,11 +191,25 @@ export interface FileRoutesByFullPath {
   '/core-concepts/execution-context-scope/day-5': typeof CoreConceptsExecutionContextScopeDay5Route
   '/core-concepts/execution-context-scope/day-6': typeof CoreConceptsExecutionContextScopeDay6Route
   '/core-concepts/execution-context-scope/day-7': typeof CoreConceptsExecutionContextScopeDay7Route
+  '/core-concepts/js-engine-internals/$day': typeof CoreConceptsJsEngineInternalsDayRoute
+  '/core-concepts/modules-perf-memory/$day': typeof CoreConceptsModulesPerfMemoryDayRoute
+  '/core-concepts/prototypes-oop/$day': typeof CoreConceptsPrototypesOopDayRoute
+  '/core-concepts/advanced-patterns/': typeof CoreConceptsAdvancedPatternsIndexRoute
+  '/core-concepts/async-js/': typeof CoreConceptsAsyncJsIndexRoute
+  '/core-concepts/closures-functions/': typeof CoreConceptsClosuresFunctionsIndexRoute
+  '/core-concepts/consolidation/': typeof CoreConceptsConsolidationIndexRoute
   '/core-concepts/execution-context-scope/': typeof CoreConceptsExecutionContextScopeIndexRoute
+  '/core-concepts/js-engine-internals/': typeof CoreConceptsJsEngineInternalsIndexRoute
+  '/core-concepts/modules-perf-memory/': typeof CoreConceptsModulesPerfMemoryIndexRoute
+  '/core-concepts/prototypes-oop/': typeof CoreConceptsPrototypesOopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
+  '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
+  '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
+  '/core-concepts/closures-functions/$day': typeof CoreConceptsClosuresFunctionsDayRoute
+  '/core-concepts/consolidation/$day': typeof CoreConceptsConsolidationDayRoute
   '/core-concepts/execution-context-scope/day-1': typeof CoreConceptsExecutionContextScopeDay1Route
   '/core-concepts/execution-context-scope/day-2': typeof CoreConceptsExecutionContextScopeDay2Route
   '/core-concepts/execution-context-scope/day-3': typeof CoreConceptsExecutionContextScopeDay3Route
@@ -102,12 +217,26 @@ export interface FileRoutesByTo {
   '/core-concepts/execution-context-scope/day-5': typeof CoreConceptsExecutionContextScopeDay5Route
   '/core-concepts/execution-context-scope/day-6': typeof CoreConceptsExecutionContextScopeDay6Route
   '/core-concepts/execution-context-scope/day-7': typeof CoreConceptsExecutionContextScopeDay7Route
+  '/core-concepts/js-engine-internals/$day': typeof CoreConceptsJsEngineInternalsDayRoute
+  '/core-concepts/modules-perf-memory/$day': typeof CoreConceptsModulesPerfMemoryDayRoute
+  '/core-concepts/prototypes-oop/$day': typeof CoreConceptsPrototypesOopDayRoute
+  '/core-concepts/advanced-patterns': typeof CoreConceptsAdvancedPatternsIndexRoute
+  '/core-concepts/async-js': typeof CoreConceptsAsyncJsIndexRoute
+  '/core-concepts/closures-functions': typeof CoreConceptsClosuresFunctionsIndexRoute
+  '/core-concepts/consolidation': typeof CoreConceptsConsolidationIndexRoute
   '/core-concepts/execution-context-scope': typeof CoreConceptsExecutionContextScopeIndexRoute
+  '/core-concepts/js-engine-internals': typeof CoreConceptsJsEngineInternalsIndexRoute
+  '/core-concepts/modules-perf-memory': typeof CoreConceptsModulesPerfMemoryIndexRoute
+  '/core-concepts/prototypes-oop': typeof CoreConceptsPrototypesOopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
+  '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
+  '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
+  '/core-concepts/closures-functions/$day': typeof CoreConceptsClosuresFunctionsDayRoute
+  '/core-concepts/consolidation/$day': typeof CoreConceptsConsolidationDayRoute
   '/core-concepts/execution-context-scope/day-1': typeof CoreConceptsExecutionContextScopeDay1Route
   '/core-concepts/execution-context-scope/day-2': typeof CoreConceptsExecutionContextScopeDay2Route
   '/core-concepts/execution-context-scope/day-3': typeof CoreConceptsExecutionContextScopeDay3Route
@@ -115,13 +244,27 @@ export interface FileRoutesById {
   '/core-concepts/execution-context-scope/day-5': typeof CoreConceptsExecutionContextScopeDay5Route
   '/core-concepts/execution-context-scope/day-6': typeof CoreConceptsExecutionContextScopeDay6Route
   '/core-concepts/execution-context-scope/day-7': typeof CoreConceptsExecutionContextScopeDay7Route
+  '/core-concepts/js-engine-internals/$day': typeof CoreConceptsJsEngineInternalsDayRoute
+  '/core-concepts/modules-perf-memory/$day': typeof CoreConceptsModulesPerfMemoryDayRoute
+  '/core-concepts/prototypes-oop/$day': typeof CoreConceptsPrototypesOopDayRoute
+  '/core-concepts/advanced-patterns/': typeof CoreConceptsAdvancedPatternsIndexRoute
+  '/core-concepts/async-js/': typeof CoreConceptsAsyncJsIndexRoute
+  '/core-concepts/closures-functions/': typeof CoreConceptsClosuresFunctionsIndexRoute
+  '/core-concepts/consolidation/': typeof CoreConceptsConsolidationIndexRoute
   '/core-concepts/execution-context-scope/': typeof CoreConceptsExecutionContextScopeIndexRoute
+  '/core-concepts/js-engine-internals/': typeof CoreConceptsJsEngineInternalsIndexRoute
+  '/core-concepts/modules-perf-memory/': typeof CoreConceptsModulesPerfMemoryIndexRoute
+  '/core-concepts/prototypes-oop/': typeof CoreConceptsPrototypesOopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/core-concepts/execution-context-guide'
+    | '/core-concepts/advanced-patterns/$day'
+    | '/core-concepts/async-js/$day'
+    | '/core-concepts/closures-functions/$day'
+    | '/core-concepts/consolidation/$day'
     | '/core-concepts/execution-context-scope/day-1'
     | '/core-concepts/execution-context-scope/day-2'
     | '/core-concepts/execution-context-scope/day-3'
@@ -129,11 +272,25 @@ export interface FileRouteTypes {
     | '/core-concepts/execution-context-scope/day-5'
     | '/core-concepts/execution-context-scope/day-6'
     | '/core-concepts/execution-context-scope/day-7'
+    | '/core-concepts/js-engine-internals/$day'
+    | '/core-concepts/modules-perf-memory/$day'
+    | '/core-concepts/prototypes-oop/$day'
+    | '/core-concepts/advanced-patterns/'
+    | '/core-concepts/async-js/'
+    | '/core-concepts/closures-functions/'
+    | '/core-concepts/consolidation/'
     | '/core-concepts/execution-context-scope/'
+    | '/core-concepts/js-engine-internals/'
+    | '/core-concepts/modules-perf-memory/'
+    | '/core-concepts/prototypes-oop/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/core-concepts/execution-context-guide'
+    | '/core-concepts/advanced-patterns/$day'
+    | '/core-concepts/async-js/$day'
+    | '/core-concepts/closures-functions/$day'
+    | '/core-concepts/consolidation/$day'
     | '/core-concepts/execution-context-scope/day-1'
     | '/core-concepts/execution-context-scope/day-2'
     | '/core-concepts/execution-context-scope/day-3'
@@ -141,11 +298,25 @@ export interface FileRouteTypes {
     | '/core-concepts/execution-context-scope/day-5'
     | '/core-concepts/execution-context-scope/day-6'
     | '/core-concepts/execution-context-scope/day-7'
+    | '/core-concepts/js-engine-internals/$day'
+    | '/core-concepts/modules-perf-memory/$day'
+    | '/core-concepts/prototypes-oop/$day'
+    | '/core-concepts/advanced-patterns'
+    | '/core-concepts/async-js'
+    | '/core-concepts/closures-functions'
+    | '/core-concepts/consolidation'
     | '/core-concepts/execution-context-scope'
+    | '/core-concepts/js-engine-internals'
+    | '/core-concepts/modules-perf-memory'
+    | '/core-concepts/prototypes-oop'
   id:
     | '__root__'
     | '/'
     | '/core-concepts/execution-context-guide'
+    | '/core-concepts/advanced-patterns/$day'
+    | '/core-concepts/async-js/$day'
+    | '/core-concepts/closures-functions/$day'
+    | '/core-concepts/consolidation/$day'
     | '/core-concepts/execution-context-scope/day-1'
     | '/core-concepts/execution-context-scope/day-2'
     | '/core-concepts/execution-context-scope/day-3'
@@ -153,12 +324,26 @@ export interface FileRouteTypes {
     | '/core-concepts/execution-context-scope/day-5'
     | '/core-concepts/execution-context-scope/day-6'
     | '/core-concepts/execution-context-scope/day-7'
+    | '/core-concepts/js-engine-internals/$day'
+    | '/core-concepts/modules-perf-memory/$day'
+    | '/core-concepts/prototypes-oop/$day'
+    | '/core-concepts/advanced-patterns/'
+    | '/core-concepts/async-js/'
+    | '/core-concepts/closures-functions/'
+    | '/core-concepts/consolidation/'
     | '/core-concepts/execution-context-scope/'
+    | '/core-concepts/js-engine-internals/'
+    | '/core-concepts/modules-perf-memory/'
+    | '/core-concepts/prototypes-oop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CoreConceptsExecutionContextGuideRoute: typeof CoreConceptsExecutionContextGuideRoute
+  CoreConceptsAdvancedPatternsDayRoute: typeof CoreConceptsAdvancedPatternsDayRoute
+  CoreConceptsAsyncJsDayRoute: typeof CoreConceptsAsyncJsDayRoute
+  CoreConceptsClosuresFunctionsDayRoute: typeof CoreConceptsClosuresFunctionsDayRoute
+  CoreConceptsConsolidationDayRoute: typeof CoreConceptsConsolidationDayRoute
   CoreConceptsExecutionContextScopeDay1Route: typeof CoreConceptsExecutionContextScopeDay1Route
   CoreConceptsExecutionContextScopeDay2Route: typeof CoreConceptsExecutionContextScopeDay2Route
   CoreConceptsExecutionContextScopeDay3Route: typeof CoreConceptsExecutionContextScopeDay3Route
@@ -166,7 +351,17 @@ export interface RootRouteChildren {
   CoreConceptsExecutionContextScopeDay5Route: typeof CoreConceptsExecutionContextScopeDay5Route
   CoreConceptsExecutionContextScopeDay6Route: typeof CoreConceptsExecutionContextScopeDay6Route
   CoreConceptsExecutionContextScopeDay7Route: typeof CoreConceptsExecutionContextScopeDay7Route
+  CoreConceptsJsEngineInternalsDayRoute: typeof CoreConceptsJsEngineInternalsDayRoute
+  CoreConceptsModulesPerfMemoryDayRoute: typeof CoreConceptsModulesPerfMemoryDayRoute
+  CoreConceptsPrototypesOopDayRoute: typeof CoreConceptsPrototypesOopDayRoute
+  CoreConceptsAdvancedPatternsIndexRoute: typeof CoreConceptsAdvancedPatternsIndexRoute
+  CoreConceptsAsyncJsIndexRoute: typeof CoreConceptsAsyncJsIndexRoute
+  CoreConceptsClosuresFunctionsIndexRoute: typeof CoreConceptsClosuresFunctionsIndexRoute
+  CoreConceptsConsolidationIndexRoute: typeof CoreConceptsConsolidationIndexRoute
   CoreConceptsExecutionContextScopeIndexRoute: typeof CoreConceptsExecutionContextScopeIndexRoute
+  CoreConceptsJsEngineInternalsIndexRoute: typeof CoreConceptsJsEngineInternalsIndexRoute
+  CoreConceptsModulesPerfMemoryIndexRoute: typeof CoreConceptsModulesPerfMemoryIndexRoute
+  CoreConceptsPrototypesOopIndexRoute: typeof CoreConceptsPrototypesOopIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,11 +380,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoreConceptsExecutionContextGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/core-concepts/prototypes-oop/': {
+      id: '/core-concepts/prototypes-oop/'
+      path: '/core-concepts/prototypes-oop'
+      fullPath: '/core-concepts/prototypes-oop/'
+      preLoaderRoute: typeof CoreConceptsPrototypesOopIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/modules-perf-memory/': {
+      id: '/core-concepts/modules-perf-memory/'
+      path: '/core-concepts/modules-perf-memory'
+      fullPath: '/core-concepts/modules-perf-memory/'
+      preLoaderRoute: typeof CoreConceptsModulesPerfMemoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/js-engine-internals/': {
+      id: '/core-concepts/js-engine-internals/'
+      path: '/core-concepts/js-engine-internals'
+      fullPath: '/core-concepts/js-engine-internals/'
+      preLoaderRoute: typeof CoreConceptsJsEngineInternalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/core-concepts/execution-context-scope/': {
       id: '/core-concepts/execution-context-scope/'
       path: '/core-concepts/execution-context-scope'
       fullPath: '/core-concepts/execution-context-scope/'
       preLoaderRoute: typeof CoreConceptsExecutionContextScopeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/consolidation/': {
+      id: '/core-concepts/consolidation/'
+      path: '/core-concepts/consolidation'
+      fullPath: '/core-concepts/consolidation/'
+      preLoaderRoute: typeof CoreConceptsConsolidationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/closures-functions/': {
+      id: '/core-concepts/closures-functions/'
+      path: '/core-concepts/closures-functions'
+      fullPath: '/core-concepts/closures-functions/'
+      preLoaderRoute: typeof CoreConceptsClosuresFunctionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/async-js/': {
+      id: '/core-concepts/async-js/'
+      path: '/core-concepts/async-js'
+      fullPath: '/core-concepts/async-js/'
+      preLoaderRoute: typeof CoreConceptsAsyncJsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/advanced-patterns/': {
+      id: '/core-concepts/advanced-patterns/'
+      path: '/core-concepts/advanced-patterns'
+      fullPath: '/core-concepts/advanced-patterns/'
+      preLoaderRoute: typeof CoreConceptsAdvancedPatternsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/prototypes-oop/$day': {
+      id: '/core-concepts/prototypes-oop/$day'
+      path: '/core-concepts/prototypes-oop/$day'
+      fullPath: '/core-concepts/prototypes-oop/$day'
+      preLoaderRoute: typeof CoreConceptsPrototypesOopDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/modules-perf-memory/$day': {
+      id: '/core-concepts/modules-perf-memory/$day'
+      path: '/core-concepts/modules-perf-memory/$day'
+      fullPath: '/core-concepts/modules-perf-memory/$day'
+      preLoaderRoute: typeof CoreConceptsModulesPerfMemoryDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/js-engine-internals/$day': {
+      id: '/core-concepts/js-engine-internals/$day'
+      path: '/core-concepts/js-engine-internals/$day'
+      fullPath: '/core-concepts/js-engine-internals/$day'
+      preLoaderRoute: typeof CoreConceptsJsEngineInternalsDayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/core-concepts/execution-context-scope/day-7': {
@@ -241,6 +506,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoreConceptsExecutionContextScopeDay1RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/core-concepts/consolidation/$day': {
+      id: '/core-concepts/consolidation/$day'
+      path: '/core-concepts/consolidation/$day'
+      fullPath: '/core-concepts/consolidation/$day'
+      preLoaderRoute: typeof CoreConceptsConsolidationDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/closures-functions/$day': {
+      id: '/core-concepts/closures-functions/$day'
+      path: '/core-concepts/closures-functions/$day'
+      fullPath: '/core-concepts/closures-functions/$day'
+      preLoaderRoute: typeof CoreConceptsClosuresFunctionsDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/async-js/$day': {
+      id: '/core-concepts/async-js/$day'
+      path: '/core-concepts/async-js/$day'
+      fullPath: '/core-concepts/async-js/$day'
+      preLoaderRoute: typeof CoreConceptsAsyncJsDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/core-concepts/advanced-patterns/$day': {
+      id: '/core-concepts/advanced-patterns/$day'
+      path: '/core-concepts/advanced-patterns/$day'
+      fullPath: '/core-concepts/advanced-patterns/$day'
+      preLoaderRoute: typeof CoreConceptsAdvancedPatternsDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -248,6 +541,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CoreConceptsExecutionContextGuideRoute:
     CoreConceptsExecutionContextGuideRoute,
+  CoreConceptsAdvancedPatternsDayRoute: CoreConceptsAdvancedPatternsDayRoute,
+  CoreConceptsAsyncJsDayRoute: CoreConceptsAsyncJsDayRoute,
+  CoreConceptsClosuresFunctionsDayRoute: CoreConceptsClosuresFunctionsDayRoute,
+  CoreConceptsConsolidationDayRoute: CoreConceptsConsolidationDayRoute,
   CoreConceptsExecutionContextScopeDay1Route:
     CoreConceptsExecutionContextScopeDay1Route,
   CoreConceptsExecutionContextScopeDay2Route:
@@ -262,8 +559,22 @@ const rootRouteChildren: RootRouteChildren = {
     CoreConceptsExecutionContextScopeDay6Route,
   CoreConceptsExecutionContextScopeDay7Route:
     CoreConceptsExecutionContextScopeDay7Route,
+  CoreConceptsJsEngineInternalsDayRoute: CoreConceptsJsEngineInternalsDayRoute,
+  CoreConceptsModulesPerfMemoryDayRoute: CoreConceptsModulesPerfMemoryDayRoute,
+  CoreConceptsPrototypesOopDayRoute: CoreConceptsPrototypesOopDayRoute,
+  CoreConceptsAdvancedPatternsIndexRoute:
+    CoreConceptsAdvancedPatternsIndexRoute,
+  CoreConceptsAsyncJsIndexRoute: CoreConceptsAsyncJsIndexRoute,
+  CoreConceptsClosuresFunctionsIndexRoute:
+    CoreConceptsClosuresFunctionsIndexRoute,
+  CoreConceptsConsolidationIndexRoute: CoreConceptsConsolidationIndexRoute,
   CoreConceptsExecutionContextScopeIndexRoute:
     CoreConceptsExecutionContextScopeIndexRoute,
+  CoreConceptsJsEngineInternalsIndexRoute:
+    CoreConceptsJsEngineInternalsIndexRoute,
+  CoreConceptsModulesPerfMemoryIndexRoute:
+    CoreConceptsModulesPerfMemoryIndexRoute,
+  CoreConceptsPrototypesOopIndexRoute: CoreConceptsPrototypesOopIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
