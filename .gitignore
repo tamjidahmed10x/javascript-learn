@@ -16,6 +16,7 @@ dist-ssr
 .output
 .wrangler
 .nitro
+.vercel
 
 # Editor directories and files
 .vscode/*

@@ -9,7 +9,9 @@ export default defineConfig({
     // Order matters: Start plugin first, React plugin after it.
     tanstackStart(),
     nitro({
-      preset: 'cloudflare-module',
+      // Vercel sets VERCEL=1 at build time → use the vercel preset there.
+      // Everywhere else (local, Cloudflare) the cloudflare-module preset stays the default.
+      preset: process.env.VERCEL ? 'vercel' : 'cloudflare-module',
       compatibilityDate: '2024-09-23',
     }),
     viteReact(),
