@@ -6,6 +6,7 @@ import {
   Scripts,
 } from '@tanstack/react-router'
 import { ThemeProvider } from '../context/ThemeContext'
+import NavigationProgress from '../components/NavigationProgress'
 import globalCss from '../index.css?url'
 
 // Runs synchronously as the first child of <body>, before paint.
@@ -51,6 +52,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       {/* suppressHydrationWarning: the no-FOUC script mutates body.className before hydration. */}
       <body suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <NavigationProgress />
         {children}
         <Scripts />
       </body>

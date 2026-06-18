@@ -1,0 +1,70 @@
+/* ── Navigation progress bar ────────────────────────────────────── */
+/* Top loading indicator for route transitions. Driven by the router's
+   isLoading state; creeps toward completion while a navigation is
+   pending, snaps to 100% and fades when it resolves. */
+
+.nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.1875rem;
+  z-index: 60;
+  pointer-events: none;
+  background-color: transparent;
+  opacity: 1;
+}
+
+.nav-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0.5rem color-mix(in oklch, var(--color-primary) 55%, transparent);
+  border-radius: 0 0.125rem 0.125rem 0;
+  transition: width 0.2s var(--ease-out-quart), opacity 0.3s var(--ease-out-quart);
+}
+
+body.light .nav-progress-bar {
+  background-color: var(--color-primary-light);
+  box-shadow: 0 0 0.5rem color-mix(in oklch, var(--color-primary-light) 55%, transparent);
+}
+
+/* Creep toward ~85% while the navigation is pending. Uses a @keyframes
+   animation rather than a transition because transitions do not fire on an
+   element's initial computed style — the bar would otherwise jump straight
+   to 85% on mount. Animations run on mount, so the creep plays from 0.
+   Slow ease-out so it feels like real progress but visibly slows as it
+   approaches the cap — the classic NProgress feel. */
+@keyframes nav-progress-creep {
+  from {
+    width: 0%;
+    opacity: 1;
+  }
+  to {
+    width: 85%;
+  }
+}
+
+.nav-progress[data-phase='loading'] .nav-progress-bar {
+  opacity: 1;
+  animation: nav-progress-creep 8s cubic-bezier(0.1, 0.9, 0.15, 1) forwards;
+}
+
+/* Navigation resolved: snap to full width, then fade the whole bar out. */
+.nav-progress[data-phase='completing'] .nav-progress-bar {
+  width: 100%;
+  opacity: 0;
+  transition: width 0.18s var(--ease-out-quart),
+    opacity 0.4s var(--ease-out-quart) 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-progress-bar,
+  .nav-progress[data-phase='completing'] .nav-progress-bar {
+    transition-duration: 0.01ms !important;
+  }
+
+  .nav-progress[data-phase='loading'] .nav-progress-bar {
+    animation-duration: 0.01ms !important;
+  }
+}
