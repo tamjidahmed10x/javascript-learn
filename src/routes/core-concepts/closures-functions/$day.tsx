@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import DayPlaceholder from '../../../pages/core-concepts/DayPlaceholder'
+import ClosuresDay from '../../../pages/core-concepts/ClosuresDay'
 
 export const Route = createFileRoute('/core-concepts/closures-functions/$day')({
-  component: DayPlaceholder,
+  component: ClosuresDay,
 })

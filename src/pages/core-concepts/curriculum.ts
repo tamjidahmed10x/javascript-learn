@@ -63,7 +63,7 @@ export const curriculum: Week[] = [
     monthLabel: CORE,
     subtitle: 'Where JavaScript interviews start getting genuinely hard.',
     meta: ['7 days', 'Closures + this', 'call / apply / bind'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       '**Week 3 (Prototypes & OOP)** rewrites how you think about inheritance. Most developers carry class-based mental models from other languages — JavaScript does it differently.',
     days: [
