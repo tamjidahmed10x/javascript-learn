@@ -227,6 +227,7 @@ body.light .sidebar-bottom {
   padding: clamp(2rem, 4vh, 3.5rem) clamp(1.5rem, 5vw, 4rem);
   max-width: 52rem;
   width: 100%;
+  min-width: 0;
   justify-self: center;
 }
 
