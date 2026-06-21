@@ -84,7 +84,7 @@ export const curriculum: Week[] = [
     monthLabel: CORE,
     subtitle: 'How inheritance actually works in JavaScript.',
     meta: ['7 days', 'Prototype chain', 'Classes under the hood'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       'With OOP behind you, **Week 4 (Async JS)** is the most practically important week. The event loop, promises, and async/await internals come up in every interview.',
     days: [
@@ -105,7 +105,7 @@ export const curriculum: Week[] = [
     monthLabel: CORE,
     subtitle: 'The event loop, promises, and async/await internals.',
     meta: ['7 days', 'Event loop', 'Promises + async/await'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       'Month 1 complete. **Month 2** moves from understanding to mastery — **Week 5 (Advanced Patterns)** introduces currying, generators, proxies, and the metaprogramming primitives that separate senior candidates.',
     days: [

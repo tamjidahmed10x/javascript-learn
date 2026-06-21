@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import DayPlaceholder from '../../../pages/core-concepts/DayPlaceholder'
+import PrototypesDay from '../../../pages/core-concepts/PrototypesDay'
 
 export const Route = createFileRoute('/core-concepts/prototypes-oop/$day')({
-  component: DayPlaceholder,
+  component: PrototypesDay,
 })
