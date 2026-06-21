@@ -126,7 +126,7 @@ export const curriculum: Week[] = [
     monthLabel: EXPERT,
     subtitle: 'Functional patterns and metaprogramming primitives.',
     meta: ['7 days', 'Currying & generators', 'Proxy & Reflect'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       '**Week 6 (Modules, Performance & Memory)** connects your code to the engine that runs it: how modules bundle, how garbage collection reclaims memory, and how leaks happen.',
     days: [
