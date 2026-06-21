@@ -147,7 +147,7 @@ export const curriculum: Week[] = [
     monthLabel: EXPERT,
     subtitle: 'How code is bundled, executed, and garbage-collected.',
     meta: ['7 days', 'ESM vs CJS', 'GC & memory leaks'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       '**Week 7 (JS Engine Internals)** goes inside V8 itself — parsing, JIT compilation, hidden classes, and the deoptimization traps that quietly kill performance.',
     days: [
