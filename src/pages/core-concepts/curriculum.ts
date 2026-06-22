@@ -189,7 +189,7 @@ export const curriculum: Week[] = [
     monthLabel: EXPERT,
     subtitle: 'Re-implement the language from scratch.',
     meta: ['7 days', 'Build from scratch', '10 hard problems'],
-    status: 'upcoming',
+    status: 'available',
     bridge:
       "That's the full journey: from execution context to engine internals. Revisit any week, or re-solve the hard problems until the answers are automatic.",
     days: [
