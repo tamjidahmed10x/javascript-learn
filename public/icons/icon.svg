@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Standard app icon (purpose: any). Transparent background.
+       Brackets drawn as vector paths (no font dependency); "js.learn"
+       uses a generic monospace stack with broad fallbacks. -->
+  <g fill="none" stroke="#9a9994" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <!-- { -->
+    <path d="M 150 150 Q 110 150 110 190 L 110 232 Q 110 256 86 256 Q 110 256 110 280 L 110 322 Q 110 362 150 362" />
+    <!-- } -->
+    <path d="M 362 150 Q 402 150 402 190 L 402 232 Q 402 256 426 256 Q 402 256 402 280 L 402 322 Q 402 362 362 362" />
+  </g>
+  <text x="256" y="288" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="84" font-weight="700" fill="#e0954e" text-anchor="middle" letter-spacing="-2">js.learn</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Favicon: just the curly braces, legible at 16px. Transparent background. -->
+  <g fill="none" stroke="#e0954e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 26 12 Q 14 12 14 24 L 14 28 Q 14 32 8 32 Q 14 32 14 36 L 14 40 Q 14 52 26 52" />
+    <path d="M 38 12 Q 50 12 50 24 L 50 28 Q 50 32 56 32 Q 50 32 50 36 L 50 40 Q 50 52 38 52" />
+  </g>
+</svg>

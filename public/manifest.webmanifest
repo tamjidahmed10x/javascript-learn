@@ -1,0 +1,60 @@
+{
+  "name": "js.learn — JavaScript to its core",
+  "short_name": "js.learn",
+  "description": "A structured 8-week path from execution context to engine internals. Written for developers who already write JS.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "developer"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Closures & Functions",
+      "short_name": "Closures",
+      "description": "Week 2 — where JS interviews get genuinely hard",
+      "url": "/core-concepts/closures-functions"
+    },
+    {
+      "name": "Asynchronous JavaScript",
+      "short_name": "Async JS",
+      "description": "Week 4 — the event loop, promises, async/await",
+      "url": "/core-concepts/async-js"
+    },
+    {
+      "name": "Execution Context & Scope",
+      "short_name": "Exec Context",
+      "description": "Week 1 — how JavaScript executes code",
+      "url": "/core-concepts/execution-context-scope"
+    }
+  ]
+}
