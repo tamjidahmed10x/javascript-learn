@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoreConceptsExecutionContextGuideRouteImport } from './routes/core-concepts/execution-context-guide'
 import { Route as CoreConceptsPrototypesOopIndexRouteImport } from './routes/core-concepts/prototypes-oop/index'
@@ -34,6 +35,11 @@ import { Route as CoreConceptsClosuresFunctionsDayRouteImport } from './routes/c
 import { Route as CoreConceptsAsyncJsDayRouteImport } from './routes/core-concepts/async-js/$day'
 import { Route as CoreConceptsAdvancedPatternsDayRouteImport } from './routes/core-concepts/advanced-patterns/$day'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -179,6 +185,7 @@ const CoreConceptsAdvancedPatternsDayRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
   '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
   '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
@@ -205,6 +212,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
   '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
   '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
@@ -232,6 +240,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/core-concepts/execution-context-guide': typeof CoreConceptsExecutionContextGuideRoute
   '/core-concepts/advanced-patterns/$day': typeof CoreConceptsAdvancedPatternsDayRoute
   '/core-concepts/async-js/$day': typeof CoreConceptsAsyncJsDayRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/sitemap.xml'
     | '/core-concepts/execution-context-guide'
     | '/core-concepts/advanced-patterns/$day'
     | '/core-concepts/async-js/$day'
@@ -286,6 +296,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/sitemap.xml'
     | '/core-concepts/execution-context-guide'
     | '/core-concepts/advanced-patterns/$day'
     | '/core-concepts/async-js/$day'
@@ -312,6 +323,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/sitemap.xml'
     | '/core-concepts/execution-context-guide'
     | '/core-concepts/advanced-patterns/$day'
     | '/core-concepts/async-js/$day'
@@ -339,6 +351,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CoreConceptsExecutionContextGuideRoute: typeof CoreConceptsExecutionContextGuideRoute
   CoreConceptsAdvancedPatternsDayRoute: typeof CoreConceptsAdvancedPatternsDayRoute
   CoreConceptsAsyncJsDayRoute: typeof CoreConceptsAsyncJsDayRoute
@@ -366,6 +379,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -539,6 +559,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CoreConceptsExecutionContextGuideRoute:
     CoreConceptsExecutionContextGuideRoute,
   CoreConceptsAdvancedPatternsDayRoute: CoreConceptsAdvancedPatternsDayRoute,

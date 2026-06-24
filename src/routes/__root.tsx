@@ -25,6 +25,9 @@ export const Route = createRootRoute({
           'Structured, opinionated deep-dives into JavaScript internals for interview preparation.',
       },
       { title: 'js.learn — JavaScript to its core' },
+      // Fallback OG site name for routes that don't override (e.g. 404s).
+      { property: 'og:site_name', content: 'js.learn — JavaScript to its core' },
+      { name: 'twitter:card', content: 'summary' },
     ],
     links: [
       { rel: 'stylesheet', href: globalCss },

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Absolute sitemap reference — keep in sync with PRODUCTION_ORIGIN in src/seo.ts.
+Sitemap: https://javascript-learn-beta.vercel.app/sitemap.xml
